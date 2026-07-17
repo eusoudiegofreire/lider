@@ -28,3 +28,39 @@ export function getAreaServed(mode: AreaServedMode): StateAreaServed[] | GeoCirc
     geoRadius: String(LOCAL_GEO_RADIUS_METERS),
   };
 }
+
+/**
+ * JSON-LD `HardwareStore` da Home (seção 5 do briefing). `areaServed` usa o
+ * modo "local" (GeoCircle) porque é o alcance do negócio como um todo — a
+ * página de Garimpo carrega seu próprio `areaServed` regional separadamente.
+ *
+ * Campos ainda não confirmados (telefone, horário) ficam de fora do JSON-LD
+ * em vez de publicar "[CONFIRMAR]" para os crawlers — o placeholder continua
+ * visível na UI (Header/Footer/Localização), só não vai pro dado estruturado.
+ */
+export function getHardwareStoreSchema() {
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "HardwareStore",
+    name: NAP.name,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: NAP.address.street,
+      addressLocality: NAP.address.locality,
+      addressRegion: NAP.address.region,
+      postalCode: NAP.address.postalCode,
+      addressCountry: NAP.address.country,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: NAP.geo.latitude,
+      longitude: NAP.geo.longitude,
+    },
+    areaServed: getAreaServed("local"),
+  };
+
+  if (NAP.phone !== "[CONFIRMAR]") schema.telephone = NAP.phone;
+  if (NAP.hours !== "[CONFIRMAR]") schema.openingHours = NAP.hours;
+
+  return schema;
+}

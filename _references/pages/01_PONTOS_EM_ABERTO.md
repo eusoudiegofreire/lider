@@ -15,7 +15,13 @@ Consolidado a partir das specs individuais em `_references/pages/`. Atualizar es
 - [ ] Nota/quantidade de avaliações do Google Meu Negócio, se for usar `aggregateRating` no schema
 
 ## Confirmação de stack (seção 7 do briefing, assumida a partir do padrão de trabalho do Diego)
-- [ ] Confirmar Next.js (App Router) + Vercel + GitHub + React Three Fiber/drei + Framer Motion + Tailwind — se algum ponto for diferente do que o cliente/Diego tem em mente, ajustar antes do setup de Fase 1.
+- [x] Next.js (App Router) + Vercel + GitHub + Tailwind confirmado no setup da Fase 1. React Three Fiber usado sem `drei` (bundle mais enxuto); Framer Motion ainda não entrou (só chega nas páginas de categoria, Fase 3).
+- [ ] **Domínio definitivo**: `lib/constants.ts` usa `SITE_URL` com fallback `https://lider-maquinas.vercel.app` (padrão de deploy da Vercel) até o domínio real ser definido — usado em `metadataBase`, `sitemap.ts`, `robots.ts`, canonical. Atualizar quando o domínio for comprado/confirmado.
+
+## Fase 2 (Home) — decisões tomadas
+- **Modelo 3D**: sem asset `.glb` fornecido, então o modelo é uma furadeira estilizada construída com primitivas do Three.js (não é uma ilustração de estoque nem um arquivo baixado de origem desconhecida). Se o cliente tiver preferência por uma ferramenta específica (picareta, motosserra) ou um modelo 3D real depois, dá pra trocar sem mexer na arquitetura (Hero3DGate/HeroCanvas).
+- **Mapa**: trocado de iframe direto para padrão "clique para carregar" (`components/sections/MapEmbed.tsx`) — o embed do Google Maps carrega ~1,7MB de JS de terceiro (Places, geometry etc.) mesmo sem API key, o que derrubava o LCP medido no Lighthouse. Agora só carrega após clique do usuário.
+- **Texto institucional "Quem é a Líder"**: ainda não escrito — a seção existe na Home, mas mostra um bloco claramente marcado `[CONFIRMAR COM O CLIENTE]` em vez de texto inventado.
 
 ---
-**Próximo passo depois de resolver isso:** iniciar a Fase 1 do plano de execução (seção 8 do briefing) — scaffold Next.js, design system (tokens de cor/tipografia "placa de equipamento" da seção 6), Header/Footer com NAP.
+**Próximo passo depois de resolver isso:** Fase 3 — páginas de categoria (Garimpo, Produtor Rural, Ferramentas), hoje linkadas pela vitrine da Home mas ainda inexistentes (404).

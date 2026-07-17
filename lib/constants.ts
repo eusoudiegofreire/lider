@@ -55,3 +55,10 @@ export const REGIONAL_STATES = ["Rondônia", "Amazonas", "Acre", "Mato Grosso"] 
 
 /** Raio de atendimento local em metros (~150km ao redor de Ariquemes). */
 export const LOCAL_GEO_RADIUS_METERS = 150_000;
+
+/**
+ * URL base do site — usa a URL de deploy da Vercel até o domínio definitivo
+ * ser confirmado (ver `_references/pages/01_PONTOS_EM_ABERTO.md`). Ajustar aqui
+ * quando o domínio real for definido.
+ */
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lider-maquinas.vercel.app";

@@ -3,7 +3,7 @@ import { Barlow_Condensed, Work_Sans, IBM_Plex_Mono } from "next/font/google";
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { NAP } from "@/lib/constants";
+import { NAP, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 const barlowCondensed = Barlow_Condensed({
@@ -24,8 +24,22 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: NAP.name,
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: NAP.name,
+    template: `${NAP.name} | %s`,
+  },
   description: `Site institucional da ${NAP.name} em ${NAP.address.locality} - ${NAP.address.region}.`,
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: NAP.name,
+    url: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
