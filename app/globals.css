@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #101211;
+  --color-surface: #181b19;
+  --color-steel: #2e332f;
+  --color-paper: #f4f1ea;
+  --color-muted: #9a948c;
+  --color-orange: #ff5a1a;
+  --color-orange-dark: #d6470f;
+  --color-red: #ff2d00;
+
+  --font-display: var(--font-barlow-condensed);
+  --font-sans: var(--font-work-sans);
+  --font-mono: var(--font-ibm-plex-mono);
+
+  --background-image-grid-technical: linear-gradient(var(--color-steel) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-steel) 1px, transparent 1px);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
