@@ -15,12 +15,6 @@ export const metadata: Metadata = {
   },
 };
 
-// TODO(pendencia-cliente): confirmar se a Líder despacha/vende à distância
-// pra fora de RO (Amazonas, Acre, Mato Grosso) ou se o atendimento a quem
-// vem de longe é sempre presencial. Enquanto isso não for confirmado, o CTA
-// final e a resposta da FAQ abaixo usam texto neutro — não decidir por conta
-// própria qual dos dois caminhos usar. Ver _references/pages/garimpo.md
-// (seção "Ponto em aberto") e _references/pages/01_PONTOS_EM_ABERTO.md.
 const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Qual equipamento é essencial para começar no garimpo?",
@@ -33,12 +27,13 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     question: "A Líder entrega equipamento de garimpo para outros estados (Amazonas, Acre, Mato Grosso)?",
-    answer: "Fale conosco pra saber sobre entrega pra sua região.",
+    answer:
+      "Sim — a Líder despacha equipamento de garimpo para fora de Rondônia, incluindo Amazonas, Acre, Mato Grosso e região. Fale pelo WhatsApp pra combinar frete e forma de pagamento do seu pedido.",
   },
   {
     question: "Quais as formas de pagamento para quem compra de fora de Rondônia?",
     answer:
-      "Ainda estamos confirmando as opções de pagamento pra quem compra de fora de Rondônia — fale com a loja pra mais detalhes.",
+      "O pagamento e o frete são combinados direto pelo WhatsApp — ainda não temos valores e prazos padronizados no site, então fale com a loja pra fechar os detalhes do seu pedido.",
   },
   {
     question: "Qual o equipamento mais procurado por garimpeiros iniciantes?",
@@ -72,14 +67,9 @@ export default function GarimpoPage() {
 
       <CategoryFaq items={FAQ_ITEMS} />
 
-      {/*
-        TODO(pendencia-cliente): mesmo ponto em aberto do array FAQ_ITEMS acima
-        — trocar esta mensagem por um texto definitivo (frete/despacho vs.
-        presencial) assim que o cliente confirmar.
-      */}
       <CategoryCta
-        title="Fale conosco"
-        message="Fale conosco pra saber sobre entrega pra sua região."
+        title="Atendemos também fora de Rondônia"
+        message="A Líder despacha equipamento de garimpo para Amazonas, Acre, Mato Grosso e região. Fale pelo WhatsApp pra combinar frete e pagamento."
       />
     </>
   );

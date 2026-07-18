@@ -1,12 +1,11 @@
 /**
  * NAP (Nome, Endereço, Telefone) — precisa ser idêntico em todo lugar:
- * site, Google Meu Negócio, redes sociais. Ver _references/pages/01_PONTOS_EM_ABERTO.md
- * para os campos ainda não confirmados pelo cliente.
+ * site, Google Meu Negócio, redes sociais. Confirmado pelo cliente em 2026-07-18.
  */
 export const NAP = {
   name: "Líder Máquinas e Ferramentas",
   address: {
-    street: "Av. Capitão Sílvio, 3395, Setor 1",
+    street: "Av. Capitão Sílvio, Áreas Especiais 01",
     locality: "Ariquemes",
     region: "RO",
     postalCode: "76870-020",
@@ -16,20 +15,35 @@ export const NAP = {
     latitude: -9.9133,
     longitude: -63.0419,
   },
-  /** Placeholder — confirmar telefone oficial com o cliente antes de publicar. */
-  phone: "[CONFIRMAR]" as string,
-  /** Placeholder — confirmar número de WhatsApp oficial com o cliente antes de publicar. */
-  whatsapp: "[CONFIRMAR]" as string,
-  /** Placeholder — briefing assume Seg-Sáb 08:00-18:00, confirmar com o cliente. */
-  hours: "[CONFIRMAR]" as string,
+  /** Telefone comercial da loja. */
+  phone: "(69) 3536-4929",
+  /** WhatsApp do vendedor — usado como CTA principal do site. */
+  whatsapp: "+55 69 99317-9347",
+  /** Texto de exibição do horário — ver `OPENING_HOURS` para o formato estruturado (schema.org). */
+  hours: "Seg a Sex: 07:30–18:00 · Sáb: 07:30–12:00 · Dom: fechado",
 } as const;
 
-/** Retorna o link do WhatsApp, ou "#" enquanto o número não for confirmado. */
+export type OpeningHours = {
+  /** Nomes de dia em inglês, conforme schema.org `DayOfWeek`. */
+  dayOfWeek: string[];
+  opens: string;
+  closes: string;
+};
+
+/** Horário estruturado pro `openingHoursSpecification` do JSON-LD. Domingo fica de fora (fechado). */
+export const OPENING_HOURS: OpeningHours[] = [
+  { dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "07:30", closes: "18:00" },
+  { dayOfWeek: ["Saturday"], opens: "07:30", closes: "12:00" },
+];
+
+/**
+ * Retorna o link do WhatsApp no formato oficial fornecido pelo cliente
+ * (`api.whatsapp.com/send`, não `wa.me`).
+ */
 export function getWhatsappHref(message?: string): string {
-  if (NAP.whatsapp === "[CONFIRMAR]") return "#";
   const digits = NAP.whatsapp.replace(/\D/g, "");
-  const text = message ? `?text=${encodeURIComponent(message)}` : "";
-  return `https://wa.me/${digits}${text}`;
+  const text = message ? `text=${encodeURIComponent(message)}` : "text";
+  return `https://api.whatsapp.com/send/?phone=${digits}&${text}&type=phone_number&app_absent=0`;
 }
 
 export type AreaServedMode = "regional" | "local";

@@ -32,21 +32,17 @@ Alcance **regional amplo**: Rondônia, Amazonas, Acre, Mato Grosso — não só 
 5. CTA de loja física + **menção a atendimento/envio para fora do estado** (condicional — ver ponto em aberto).
 6. Schema: `Product`/`ItemList` (linha de produtos) + `FAQPage` (bloco de perguntas).
 
-## 🔴 Ponto em aberto (bloqueia o CTA final e o texto de FAQ sobre frete)
-Confirmar com o cliente: a Líder atende cliente de fora (Manaus, Acre, MT) só por telefone/WhatsApp com despacho, ou é sempre presencial mesmo vindo de longe? Isso muda:
-- Se o CTA menciona frete/envio e formas de pagamento à distância, ou só "venha conferir pessoalmente".
-- O conteúdo do blog associado a esta linha (seção 4 do briefing already assume que pode captar busca de fora).
-
-**Não escrever o texto final de CTA e FAQ de frete até essa resposta.**
+## ✅ Ponto em aberto — resolvido em 2026-07-18
+Confirmado com o cliente: a Líder **despacha equipamento de garimpo para fora de Rondônia** (Amazonas, Acre, Mato Grosso e região), com frete e forma de pagamento combinados via WhatsApp — ainda sem valores/prazos padronizados. CTA final e FAQ de frete em `app/garimpo/page.tsx` já refletem isso; os comentários `TODO(pendencia-cliente)` foram removidos do código. O ângulo do blog da linha Garimpo (Fase 4) pode assumir esse alcance com envio, conforme a seção 4 do briefing já previa.
 
 ## Blog associado (linha Garimpo — ver seção 4 do briefing)
 Guias de escolha e conteúdo que capta busca de fora do estado, sem amarrar toda frase a "Ariquemes" (a cidade já aparece na página de contato/localização). Exemplos: "Como escolher uma bateia de garimpo", "Onde comprar equipamento de garimpo em Rondônia".
 
 ## Critério de "pronto" (Fase 3)
-- [ ] `npm run build` e `npx tsc --noEmit` sem erro.
-- [ ] `/garimpo` com H1 sem amarrar a Ariquemes, bloco answer-first, vitrine (placeholder marcado), FAQ em H2, CTA neutro sobre entrega/atendimento fora de RO.
-- [ ] CTA final e resposta da FAQ de frete usam texto neutro ("fale conosco pra saber sobre entrega pra sua região") — **não escolhido presencial-só nem despacho-pra-fora** até confirmação do cliente.
-- [ ] Comentário `TODO` no código apontando pro ponto em aberto (atendimento fora de RO), referenciando este arquivo e `01_PONTOS_EM_ABERTO.md`.
-- [ ] Nenhum produto, marca, preço ou forma de pagamento à distância inventada.
-- [ ] Schema: `Service`/`FAQPage` com `areaServed` via `getAreaServed("regional")` (lista de estados RO/AM/AC/MT).
-- [ ] Metadata (title/description) e JSON-LD presentes, mencionando a região ampla, não só a cidade.
+- [x] `npm run build` e `npx tsc --noEmit` sem erro.
+- [x] `/garimpo` com H1 sem amarrar a Ariquemes, bloco answer-first, vitrine (placeholder marcado), FAQ em H2, CTA sobre entrega fora de RO.
+- [x] CTA final e resposta da FAQ de frete atualizados com o despacho confirmado (2026-07-18) — sem valores/prazos inventados, já que isso não foi definido.
+- [x] Comentários `TODO` removidos do código (ponto em aberto resolvido).
+- [x] Nenhum produto, marca, preço ou forma de pagamento à distância inventada.
+- [x] Schema: `Service`/`FAQPage` com `areaServed` via `getAreaServed("regional")` (lista de estados RO/AM/AC/MT).
+- [x] Metadata (title/description) e JSON-LD presentes, mencionando a região ampla, não só a cidade.

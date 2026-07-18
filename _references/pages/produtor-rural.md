@@ -38,8 +38,8 @@ Deriva de: `_references/00_BRIEFING_SITE_LIDER_MAQUINAS.md` (seções 1, 3, 5)
 Guias de escolha e manutenção, comparativos, sempre com cidade/região no título ou H2 (ex: "Roçadeira elétrica x a gasolina: qual vale mais a pena", "Onde comprar ferramentas para produtor rural em Ariquemes").
 
 ## Critério de "pronto" (Fase 3)
-- [ ] `npm run build` e `npx tsc --noEmit` sem erro.
-- [ ] `/produtor-rural` com H1 único (com "Ariquemes"), bloco answer-first citando as cidades do raio, vitrine (placeholder marcado), FAQ em H2, CTA de loja física sem menção a frete/fora do estado.
-- [ ] Nenhum produto, marca ou preço inventado.
-- [ ] Schema: `Service`/`FAQPage` com `areaServed` via `getAreaServed("local")`.
-- [ ] Metadata (title/description) e JSON-LD presentes.
+- [x] `npm run build` e `npx tsc --noEmit` sem erro.
+- [x] `/produtor-rural` com H1 único (com "Ariquemes"), bloco answer-first citando as cidades do raio, vitrine (placeholder marcado), FAQ em H2, CTA de loja física sem menção a frete/fora do estado.
+- [x] Nenhum produto, marca ou preço inventado.
+- [x] Schema: `Service`/`FAQPage` com `areaServed` via `getAreaServed("local")`.
+- [x] Metadata (title/description) e JSON-LD presentes.

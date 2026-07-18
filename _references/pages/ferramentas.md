@@ -33,9 +33,9 @@ Delimitar escopo exato desta categoria vs. Mecânica (seção 2 do briefing) —
 Mesma lógica de Produtor Rural — guias e comparativos com cidade/região no título.
 
 ## Critério de "pronto" (Fase 3)
-- [ ] `npm run build` e `npx tsc --noEmit` sem erro.
-- [ ] `/ferramentas` com H1 único, bloco answer-first, vitrine (placeholder marcado — catálogo real ainda não confirmado), FAQ em H2, CTA de loja física.
-- [ ] Nenhum produto, marca ou preço inventado — onde a pergunta do FAQ pede isso, resposta fica marcada como pendente.
-- [ ] Schema: `Service`/`FAQPage` com `areaServed` via `getAreaServed("local")` (helper da Fase 1). Sem `Product`/`ItemList` fabricado.
-- [ ] Metadata (title/description) e JSON-LD presentes.
-- [ ] Header/Footer (já existentes) linkam corretamente pra essa rota (sem mudança necessária, só validar que não quebrou).
+- [x] `npm run build` e `npx tsc --noEmit` sem erro.
+- [x] `/ferramentas` com H1 único, bloco answer-first, vitrine (placeholder marcado — catálogo real ainda não confirmado), FAQ em H2, CTA de loja física.
+- [x] Nenhum produto, marca ou preço inventado — onde a pergunta do FAQ pede isso, resposta fica marcada como pendente.
+- [x] Schema: `Service`/`FAQPage` com `areaServed` via `getAreaServed("local")` (helper da Fase 1). Sem `Product`/`ItemList` fabricado.
+- [x] Metadata (title/description) e JSON-LD presentes.
+- [x] Header/Footer (já existentes) linkam corretamente pra essa rota (sem mudança necessária, só validar que não quebrou).
