@@ -3,12 +3,14 @@
 @theme inline {
   --color-ink: #101211;
   --color-surface: #181b19;
-  --color-steel: #2e332f;
   --color-paper: #f4f1ea;
   --color-muted: #9a948c;
-  --color-orange: #ff5a1a;
-  --color-orange-dark: #d6470f;
-  --color-red: #ff2d00;
+  --color-brand: #8c292d;
+  --color-brand-deep: #6e1f23;
+  --color-brand-light: #a83a3f;
+  --color-steel: #555868;
+  --color-steel-light: #7b7f8f;
+  --color-steel-dark: #3a3d49;
 
   --font-display: var(--font-barlow-condensed);
   --font-sans: var(--font-work-sans);

@@ -8,7 +8,7 @@ export function Hero() {
     <section className="relative overflow-hidden border-b border-steel bg-ink">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center md:py-28">
         <div>
-          <Badge tone="orange">{NAP.address.locality} - {NAP.address.region}</Badge>
+          <Badge tone="brand">{NAP.address.locality} - {NAP.address.region}</Badge>
           <h1 className="mt-4 font-display text-4xl uppercase leading-tight text-paper sm:text-5xl">
             Máquinas e Ferramentas para Garimpo, Campo e Oficina em Ariquemes
           </h1>

@@ -6,12 +6,14 @@ type Variant = "primary" | "secondary" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-display uppercase tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2 font-display uppercase tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:opacity-50 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-orange text-ink hover:bg-orange-dark",
-  secondary: "border border-steel text-paper hover:border-orange hover:text-orange",
-  ghost: "text-paper hover:text-orange",
+  // texto claro no primário: --color-brand é um vermelho escuro (oxblood), não
+  // contrasta bem com texto escuro como o antigo laranja contrastava.
+  primary: "bg-brand text-paper hover:bg-brand-deep",
+  secondary: "border border-steel text-paper hover:border-brand hover:text-brand",
+  ghost: "text-paper hover:text-brand",
 };
 
 const sizes: Record<Size, string> = {

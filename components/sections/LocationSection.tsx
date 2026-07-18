@@ -21,7 +21,7 @@ export function LocationSection() {
           </address>
 
           <p className="mt-4 text-sm text-paper">
-            Horário: <span className="font-mono text-orange">{NAP.hours}</span>
+            Horário: <span className="font-mono text-brand">{NAP.hours}</span>
           </p>
 
           <div className="mt-6 flex aspect-video items-center justify-center border border-dashed border-steel bg-grid-technical bg-[length:32px_32px]">

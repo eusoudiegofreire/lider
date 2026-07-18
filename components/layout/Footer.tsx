@@ -18,13 +18,13 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-orange">Categorias</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-brand">Categorias</p>
           <ul className="mt-3 space-y-2">
             {CATEGORIES.map((category) => (
               <li key={category.slug}>
                 <Link
                   href={`/${category.slug}`}
-                  className="text-sm text-muted transition-colors hover:text-orange"
+                  className="text-sm text-muted transition-colors hover:text-brand"
                 >
                   {category.label}
                 </Link>
@@ -34,20 +34,20 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-orange">Institucional</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-brand">Institucional</p>
           <ul className="mt-3 space-y-2">
             <li>
-              <Link href="/sobre" className="text-sm text-muted transition-colors hover:text-orange">
+              <Link href="/sobre" className="text-sm text-muted transition-colors hover:text-brand">
                 Sobre / Localização
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="text-sm text-muted transition-colors hover:text-orange">
+              <Link href="/blog" className="text-sm text-muted transition-colors hover:text-brand">
                 Blog
               </Link>
             </li>
             <li>
-              <Link href="/contato" className="text-sm text-muted transition-colors hover:text-orange">
+              <Link href="/contato" className="text-sm text-muted transition-colors hover:text-brand">
                 Contato
               </Link>
             </li>

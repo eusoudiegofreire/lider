@@ -16,8 +16,8 @@ export function CategoryShowcase() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {phase1Categories.map((category) => (
             <Link key={category.slug} href={`/${category.slug}`} className="group block">
-              <Card technical className="h-full transition-colors group-hover:border-orange">
-                <Badge tone={category.areaMode === "regional" ? "orange" : "steel"}>
+              <Card technical className="h-full transition-colors group-hover:border-brand">
+                <Badge tone={category.areaMode === "regional" ? "brand" : "steel"}>
                   {category.areaMode === "regional" ? "Alcance regional" : "Alcance local"}
                 </Badge>
                 <p className="mt-4 font-display text-2xl uppercase text-paper">

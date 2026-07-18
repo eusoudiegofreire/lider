@@ -12,7 +12,7 @@ export function About() {
       <SectionHeading eyebrow="Quem somos" title={`A ${NAP.name}`} />
 
       <div className="mt-8 border border-dashed border-steel bg-surface p-6">
-        <p className="font-mono text-xs uppercase tracking-widest text-orange">
+        <p className="font-mono text-xs uppercase tracking-widest text-brand">
           [CONFIRMAR COM O CLIENTE]
         </p>
         <p className="mt-2 max-w-2xl text-muted">

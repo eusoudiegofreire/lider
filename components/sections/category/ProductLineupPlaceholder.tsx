@@ -20,7 +20,7 @@ export function ProductLineupPlaceholder() {
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {PLACEHOLDER_SLOTS.map((slot) => (
           <Card key={slot} className="border-dashed">
-            <p className="font-mono text-xs uppercase tracking-widest text-orange">
+            <p className="font-mono text-xs uppercase tracking-widest text-brand">
               [CONFIRMAR COM O CLIENTE]
             </p>
             <p className="mt-2 text-sm text-muted">Linha de produto a confirmar.</p>

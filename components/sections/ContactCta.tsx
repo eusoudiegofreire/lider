@@ -13,7 +13,7 @@ export function ContactCta() {
             {NAP.address.street} — {NAP.address.locality}/{NAP.address.region}
           </p>
           <p className="mt-1 text-sm text-muted">
-            Tel/WhatsApp: <span className="font-mono text-orange">{NAP.phone}</span>
+            Tel/WhatsApp: <span className="font-mono text-brand">{NAP.phone}</span>
           </p>
         </div>
 

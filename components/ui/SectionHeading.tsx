@@ -18,7 +18,7 @@ export function SectionHeading({
   return (
     <div className={clsx(align === "center" && "text-center", className)}>
       {eyebrow ? (
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-orange">{eyebrow}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">{eyebrow}</p>
       ) : null}
       <h2 className="mt-2 font-display text-3xl uppercase tracking-wide text-paper sm:text-4xl">
         {title}

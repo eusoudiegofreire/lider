@@ -17,7 +17,7 @@ export function CategoryHero({ badge, title, intro }: CategoryHeroProps) {
   return (
     <section className="border-b border-steel bg-ink py-20">
       <div className="mx-auto max-w-4xl px-6">
-        <Badge tone="orange">{badge}</Badge>
+        <Badge tone="brand">{badge}</Badge>
         <h1 className="mt-4 font-display text-4xl uppercase leading-tight text-paper sm:text-5xl">
           {title}
         </h1>

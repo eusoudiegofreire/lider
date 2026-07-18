@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 export function HeroFallback() {
   return (
     <div className="flex h-full w-full items-center justify-center bg-grid-technical bg-[length:32px_32px]">
-      <Badge tone="orange">Líder Máquinas e Ferramentas</Badge>
+      <Badge tone="brand">Líder Máquinas e Ferramentas</Badge>
     </div>
   );
 }
