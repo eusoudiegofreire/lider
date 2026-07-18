@@ -41,3 +41,12 @@ Confirmar com o cliente: a Líder atende cliente de fora (Manaus, Acre, MT) só 
 
 ## Blog associado (linha Garimpo — ver seção 4 do briefing)
 Guias de escolha e conteúdo que capta busca de fora do estado, sem amarrar toda frase a "Ariquemes" (a cidade já aparece na página de contato/localização). Exemplos: "Como escolher uma bateia de garimpo", "Onde comprar equipamento de garimpo em Rondônia".
+
+## Critério de "pronto" (Fase 3)
+- [ ] `npm run build` e `npx tsc --noEmit` sem erro.
+- [ ] `/garimpo` com H1 sem amarrar a Ariquemes, bloco answer-first, vitrine (placeholder marcado), FAQ em H2, CTA neutro sobre entrega/atendimento fora de RO.
+- [ ] CTA final e resposta da FAQ de frete usam texto neutro ("fale conosco pra saber sobre entrega pra sua região") — **não escolhido presencial-só nem despacho-pra-fora** até confirmação do cliente.
+- [ ] Comentário `TODO` no código apontando pro ponto em aberto (atendimento fora de RO), referenciando este arquivo e `01_PONTOS_EM_ABERTO.md`.
+- [ ] Nenhum produto, marca, preço ou forma de pagamento à distância inventada.
+- [ ] Schema: `Service`/`FAQPage` com `areaServed` via `getAreaServed("regional")` (lista de estados RO/AM/AC/MT).
+- [ ] Metadata (title/description) e JSON-LD presentes, mencionando a região ampla, não só a cidade.

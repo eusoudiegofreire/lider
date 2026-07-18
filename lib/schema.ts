@@ -29,6 +29,17 @@ export function getAreaServed(mode: AreaServedMode): StateAreaServed[] | GeoCirc
   };
 }
 
+function buildPostalAddress() {
+  return {
+    "@type": "PostalAddress" as const,
+    streetAddress: NAP.address.street,
+    addressLocality: NAP.address.locality,
+    addressRegion: NAP.address.region,
+    postalCode: NAP.address.postalCode,
+    addressCountry: NAP.address.country,
+  };
+}
+
 /**
  * JSON-LD `HardwareStore` da Home (seção 5 do briefing). `areaServed` usa o
  * modo "local" (GeoCircle) porque é o alcance do negócio como um todo — a
@@ -43,14 +54,7 @@ export function getHardwareStoreSchema() {
     "@context": "https://schema.org",
     "@type": "HardwareStore",
     name: NAP.name,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: NAP.address.street,
-      addressLocality: NAP.address.locality,
-      addressRegion: NAP.address.region,
-      postalCode: NAP.address.postalCode,
-      addressCountry: NAP.address.country,
-    },
+    address: buildPostalAddress(),
     geo: {
       "@type": "GeoCoordinates",
       latitude: NAP.geo.latitude,
@@ -63,4 +67,55 @@ export function getHardwareStoreSchema() {
   if (NAP.hours !== "[CONFIRMAR]") schema.openingHours = NAP.hours;
 
   return schema;
+}
+
+export type FaqItem = { question: string; answer: string };
+
+/**
+ * JSON-LD `FAQPage` a partir do mesmo conteúdo exibido na página (Fase 3 —
+ * páginas de categoria). As respostas nunca devem conter produto, marca ou
+ * preço inventado — isso é responsabilidade de quem monta o array `faqs`.
+ */
+export function getFaqPageSchema(faqs: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+/**
+ * JSON-LD `Service` para uma página de categoria (Garimpo, Produtor Rural,
+ * Ferramentas...). Não emite `Product`/`ItemList` porque o catálogo real
+ * ainda não foi confirmado pelo cliente (ver
+ * `_references/pages/01_PONTOS_EM_ABERTO.md`) e um ItemList exige listar
+ * itens reais — quando o catálogo chegar, complementar com um `ItemList` de
+ * verdade em vez de expandir este helper com produtos fabricados.
+ */
+export function getCategoryServiceSchema({
+  name,
+  mode,
+}: {
+  name: string;
+  mode: AreaServedMode;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: name,
+    name: `${name} — ${NAP.name}`,
+    provider: {
+      "@type": "HardwareStore",
+      name: NAP.name,
+      address: buildPostalAddress(),
+    },
+    areaServed: getAreaServed(mode),
+  };
 }

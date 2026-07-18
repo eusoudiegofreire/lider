@@ -23,5 +23,10 @@ Consolidado a partir das specs individuais em `_references/pages/`. Atualizar es
 - **Mapa**: trocado de iframe direto para padrão "clique para carregar" (`components/sections/MapEmbed.tsx`) — o embed do Google Maps carrega ~1,7MB de JS de terceiro (Places, geometry etc.) mesmo sem API key, o que derrubava o LCP medido no Lighthouse. Agora só carrega após clique do usuário.
 - **Texto institucional "Quem é a Líder"**: ainda não escrito — a seção existe na Home, mas mostra um bloco claramente marcado `[CONFIRMAR COM O CLIENTE]` em vez de texto inventado.
 
+## Fase 3 (páginas de categoria) — o que ficou marcado no código esperando confirmação
+- **`app/garimpo/page.tsx`**: comentário `TODO(pendencia-cliente)` acima do array `FAQ_ITEMS` e outro acima do `<CategoryCta>`, apontando pro ponto em aberto de atendimento fora de RO. CTA e a resposta da FAQ de entrega estão com texto neutro ("Fale conosco pra saber sobre entrega pra sua região") até a confirmação chegar.
+- **As 3 páginas** (`/ferramentas`, `/produtor-rural`, `/garimpo`) usam `components/sections/category/ProductLineupPlaceholder.tsx` — vitrine com 3 slots marcados `[CONFIRMAR COM O CLIENTE]` em vez de produto/marca inventados. Trocar por `ItemList` real no schema (`lib/schema.ts`) quando o catálogo chegar.
+- FAQ de cada página: perguntas que pediam recomendação de produto específico, marca ou forma de pagamento à distância ficaram com resposta genérica "fale com a loja" em vez de resposta inventada.
+
 ---
-**Próximo passo depois de resolver isso:** Fase 3 — páginas de categoria (Garimpo, Produtor Rural, Ferramentas), hoje linkadas pela vitrine da Home mas ainda inexistentes (404).
+**Próximo passo depois de resolver isso:** Fase 4 — Blog (estrutura de listagem + posts) e Fase 5 — SEO técnico final (Search Console, GMB). Mecânica/Jardinagem seguem fora de escopo até decisão do cliente (ver "Decisões de escopo" acima).
