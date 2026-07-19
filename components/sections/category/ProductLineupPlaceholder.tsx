@@ -23,7 +23,7 @@ export function ProductLineupPlaceholder() {
             <p className="font-mono text-xs uppercase tracking-widest text-brand">
               [CONFIRMAR COM O CLIENTE]
             </p>
-            <p className="mt-2 text-sm text-muted">Linha de produto a confirmar.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Linha de produto a confirmar.</p>
           </Card>
         ))}
       </div>

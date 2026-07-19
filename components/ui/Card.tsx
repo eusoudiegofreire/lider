@@ -10,7 +10,7 @@ export function Card({ technical = false, className, children, ...props }: CardP
   return (
     <div
       className={clsx(
-        "relative overflow-hidden border border-steel bg-surface p-6",
+        "relative overflow-hidden border border-border bg-card text-card-foreground p-6",
         technical && "bg-grid-technical bg-[length:40px_40px]",
         className,
       )}

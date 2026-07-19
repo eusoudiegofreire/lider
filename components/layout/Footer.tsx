@@ -4,17 +4,17 @@ import { CATEGORIES, NAP } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-steel bg-ink">
+    <footer className="section-dark border-t border-border bg-background">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 md:grid-cols-3">
         <div>
-          <p className="font-display text-lg uppercase tracking-wide text-paper">{NAP.name}</p>
-          <address className="mt-3 not-italic text-sm text-muted">
+          <p className="font-display text-lg uppercase tracking-wide text-foreground">{NAP.name}</p>
+          <address className="mt-3 not-italic text-sm text-muted-foreground">
             {NAP.address.street}
             <br />
             {NAP.address.locality} - {NAP.address.region}, {NAP.address.postalCode}
           </address>
-          <p className="mt-3 text-sm text-muted">Tel/WhatsApp: {NAP.phone}</p>
-          <p className="text-sm text-muted">Horário: {NAP.hours}</p>
+          <p className="mt-3 text-sm text-muted-foreground">Tel/WhatsApp: {NAP.phone}</p>
+          <p className="text-sm text-muted-foreground">Horário: {NAP.hours}</p>
         </div>
 
         <div>
@@ -24,7 +24,7 @@ export function Footer() {
               <li key={category.slug}>
                 <Link
                   href={`/${category.slug}`}
-                  className="text-sm text-muted transition-colors hover:text-brand"
+                  className="text-sm text-muted-foreground transition-colors hover:text-brand"
                 >
                   {category.label}
                 </Link>
@@ -37,17 +37,17 @@ export function Footer() {
           <p className="font-mono text-xs uppercase tracking-widest text-brand">Institucional</p>
           <ul className="mt-3 space-y-2">
             <li>
-              <Link href="/sobre" className="text-sm text-muted transition-colors hover:text-brand">
+              <Link href="/sobre" className="text-sm text-muted-foreground transition-colors hover:text-brand">
                 Sobre / Localização
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="text-sm text-muted transition-colors hover:text-brand">
+              <Link href="/blog" className="text-sm text-muted-foreground transition-colors hover:text-brand">
                 Blog
               </Link>
             </li>
             <li>
-              <Link href="/contato" className="text-sm text-muted transition-colors hover:text-brand">
+              <Link href="/contato" className="text-sm text-muted-foreground transition-colors hover:text-brand">
                 Contato
               </Link>
             </li>
@@ -55,7 +55,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-steel px-6 py-4 text-center text-xs text-muted">
+      <div className="border-t border-border px-6 py-4 text-center text-xs text-muted-foreground">
         © {new Date().getFullYear()} {NAP.name}
       </div>
     </footer>

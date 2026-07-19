@@ -9,11 +9,15 @@ const base =
   "inline-flex items-center justify-center gap-2 font-display uppercase tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:opacity-50 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {
-  // texto claro no primário: --color-brand é um vermelho escuro (oxblood), não
-  // contrasta bem com texto escuro como o antigo laranja contrastava.
+  // texto sempre claro no primário: --color-brand é um vermelho escuro
+  // (oxblood), então o texto é sempre `paper`, independente da seção — não
+  // "inverte" porque o fundo do botão já é fixo (brand), não a seção.
   primary: "bg-brand text-paper hover:bg-brand-deep",
-  secondary: "border border-steel text-paper hover:border-brand hover:text-brand",
-  ghost: "text-paper hover:text-brand",
+  // secondary/ghost aparecem tanto em seção clara quanto escura (ex: o botão
+  // "Carregar mapa" fica numa seção clara) — usam os tokens semânticos pra
+  // herdar a cor certa automaticamente em vez de fixar `text-paper`.
+  secondary: "border border-border text-foreground hover:border-brand hover:text-brand",
+  ghost: "text-foreground hover:text-brand",
 };
 
 const sizes: Record<Size, string> = {

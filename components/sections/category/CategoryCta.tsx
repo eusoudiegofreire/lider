@@ -8,16 +8,18 @@ type CategoryCtaProps = {
 
 export function CategoryCta({ title = "Venha conferir pessoalmente", message }: CategoryCtaProps) {
   return (
-    <section className="border-t border-steel bg-ink py-16">
+    <section className="section-dark border-t border-border bg-background py-16">
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="font-display text-2xl uppercase text-paper">{title}</p>
-          <p className="mt-2 max-w-xl text-muted">{message}</p>
-          <p className="mt-2 text-sm text-muted">
+          <p className="font-display text-2xl uppercase text-foreground">{title}</p>
+          <p className="mt-2 max-w-xl text-muted-foreground">{message}</p>
+          <p className="mt-2 text-sm text-muted-foreground">
             {NAP.address.street} — {NAP.address.locality}/{NAP.address.region}
           </p>
-          <p className="mt-1 text-sm text-muted">
-            Tel/WhatsApp: <span className="font-mono text-brand">{NAP.phone}</span>
+          {/* brand (bordô) falha contraste sobre fundo escuro (2.21:1) — ver
+              docs/brand-guidelines.md — ênfase aqui é por peso, não cor. */}
+          <p className="mt-1 text-sm text-muted-foreground">
+            Tel/WhatsApp: <span className="font-mono text-foreground">{NAP.phone}</span>
           </p>
         </div>
 

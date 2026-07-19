@@ -14,24 +14,24 @@ export function LocationSection() {
 
       <div className="mt-10 grid gap-8 md:grid-cols-2">
         <div>
-          <address className="not-italic text-muted">
+          <address className="not-italic text-muted-foreground">
             {NAP.address.street}
             <br />
             {NAP.address.locality} - {NAP.address.region}, {NAP.address.postalCode}
           </address>
 
-          <p className="mt-4 text-sm text-paper">
+          <p className="mt-4 text-sm text-foreground">
             Horário: <span className="font-mono text-brand">{NAP.hours}</span>
           </p>
 
-          <div className="mt-6 flex aspect-video items-center justify-center border border-dashed border-steel bg-grid-technical bg-[length:32px_32px]">
-            <p className="px-4 text-center font-mono text-xs uppercase tracking-widest text-muted">
+          <div className="mt-6 flex aspect-video items-center justify-center border border-dashed border-border bg-grid-technical bg-[length:32px_32px]">
+            <p className="px-4 text-center font-mono text-xs uppercase tracking-widest text-muted-foreground">
               [Foto da fachada a confirmar]
             </p>
           </div>
         </div>
 
-        <div className="aspect-video overflow-hidden border border-steel">
+        <div className="aspect-video overflow-hidden border border-border">
           <MapEmbed src={mapSrc} title={`Mapa - ${NAP.name}`} />
         </div>
       </div>

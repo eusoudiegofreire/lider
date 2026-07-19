@@ -11,7 +11,7 @@ type CategoryFaqProps = {
  */
 export function CategoryFaq({ items }: CategoryFaqProps) {
   return (
-    <section className="border-t border-steel bg-surface py-20">
+    <section className="border-t border-border bg-card py-20">
       <div className="mx-auto max-w-4xl px-6">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
           Perguntas frequentes
@@ -19,8 +19,8 @@ export function CategoryFaq({ items }: CategoryFaqProps) {
         <div className="mt-6 space-y-8">
           {items.map((item) => (
             <div key={item.question}>
-              <h2 className="font-display text-xl uppercase text-paper">{item.question}</h2>
-              <p className="mt-2 text-muted">{item.answer}</p>
+              <h2 className="font-display text-xl uppercase text-card-foreground">{item.question}</h2>
+              <p className="mt-2 text-muted-foreground">{item.answer}</p>
             </div>
           ))}
         </div>

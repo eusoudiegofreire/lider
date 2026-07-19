@@ -15,13 +15,13 @@ type CategoryHeroProps = {
  */
 export function CategoryHero({ badge, title, intro }: CategoryHeroProps) {
   return (
-    <section className="border-b border-steel bg-ink py-20">
+    <section className="section-dark border-b border-border bg-background py-20">
       <div className="mx-auto max-w-4xl px-6">
         <Badge tone="brand">{badge}</Badge>
-        <h1 className="mt-4 font-display text-4xl uppercase leading-tight text-paper sm:text-5xl">
+        <h1 className="mt-4 font-display text-4xl uppercase leading-tight text-foreground sm:text-5xl">
           {title}
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-muted">{intro}</p>
+        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{intro}</p>
         <div className="mt-8">
           <Button href={getWhatsappHref("Olá! Vim pelo site da Líder Máquinas.")}>
             Falar no WhatsApp

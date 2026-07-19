@@ -6,7 +6,7 @@ import { CATEGORIES, NAP, getWhatsappHref } from "@/lib/constants";
 
 export function Header() {
   return (
-    <header className="border-b border-steel bg-ink">
+    <header className="section-dark border-b border-border bg-background">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center">
           {/* logo-lider.jpg já traz o wordmark "Líder Máquinas" embutido e tem
@@ -30,14 +30,14 @@ export function Header() {
             <Link
               key={category.slug}
               href={`/${category.slug}`}
-              className="font-display text-sm uppercase tracking-wide text-muted transition-colors hover:text-brand"
+              className="font-display text-sm uppercase tracking-wide text-muted-foreground transition-colors hover:text-brand"
             >
               {category.label}
             </Link>
           ))}
           <Link
             href="/blog"
-            className="font-display text-sm uppercase tracking-wide text-muted transition-colors hover:text-brand"
+            className="font-display text-sm uppercase tracking-wide text-muted-foreground transition-colors hover:text-brand"
           >
             Blog
           </Link>

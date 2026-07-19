@@ -1,16 +1,40 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-ink: #101211;
-  --color-surface: #181b19;
-  --color-paper: #f4f1ea;
-  --color-muted: #9a948c;
+/*
+ * Arquitetura de tokens em 3 camadas (ver docs/brand-guidelines.md).
+ *
+ * 1. Primitivos — valores brutos extraídos da marca/logo.
+ * 2. Semânticos — papéis (background/foreground/card/border/muted) que
+ *    resolvem pra um primitivo diferente dentro de `.section-dark`. Todo
+ *    componente deve preferir a camada semântica; os primitivos ficam
+ *    disponíveis como escape-hatch pra casos que não devem variar por seção
+ *    (ex: o vermelho da marca em botões, que é sempre `brand`, nunca "o
+ *    vermelho da seção clara").
+ */
+@theme {
+  /* ---- Primitivos: marca (fixos, não variam entre seção clara/escura) ---- */
   --color-brand: #8c292d;
   --color-brand-deep: #6e1f23;
   --color-brand-light: #a83a3f;
   --color-steel: #555868;
   --color-steel-light: #7b7f8f;
   --color-steel-dark: #3a3d49;
+
+  /* ---- Primitivos: neutros brutos ---- */
+  --color-paper: #f4f1ea;
+  --color-ink: #101211;
+  --color-cloud: #eae6dd;
+  --color-charcoal: #181b19;
+  --color-stone: #6b655c;
+  --color-stone-dark: #b5afa6;
+
+  /* ---- Semânticos: papel de cada token, seção clara = padrão ---- */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-cloud);
+  --color-card-foreground: var(--color-ink);
+  --color-muted-foreground: var(--color-stone);
+  --color-border: var(--color-steel);
 
   --font-display: var(--font-barlow-condensed);
   --font-sans: var(--font-work-sans);
@@ -20,7 +44,28 @@
     linear-gradient(90deg, var(--color-steel) 1px, transparent 1px);
 }
 
+/*
+ * Seção escura (Hero, Footer, faixas de CTA) — redefine os tokens
+ * semânticos, não os primitivos. Qualquer componente que já usa
+ * `bg-background`/`text-foreground`/`bg-card`/`text-muted-foreground`/
+ * `border-border` herda a versão escura automaticamente ao ficar dentro de
+ * um wrapper com esta classe, sem precisar de classes condicionais.
+ *
+ * `brand`/`brand-light` continuam fora deste bloco de propósito — por regra
+ * de contraste (ver docs/brand-guidelines.md) eles não têm variante que
+ * funcione como texto sobre fundo escuro, então não fazem parte do sistema
+ * que "inverte" — texto de ênfase em seção escura usa `foreground` (paper).
+ */
+.section-dark {
+  --color-background: var(--color-ink);
+  --color-foreground: var(--color-paper);
+  --color-card: var(--color-charcoal);
+  --color-card-foreground: var(--color-paper);
+  --color-muted-foreground: var(--color-stone-dark);
+  --color-border: var(--color-steel-light);
+}
+
 body {
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-background);
+  color: var(--color-foreground);
 }

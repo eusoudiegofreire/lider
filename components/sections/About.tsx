@@ -11,13 +11,13 @@ export function About() {
     <section className="mx-auto max-w-6xl px-6 py-20">
       <SectionHeading eyebrow="Quem somos" title={`A ${NAP.name}`} />
 
-      <div className="mt-8 border border-dashed border-steel bg-surface p-6">
+      <div className="mt-8 border border-dashed border-border bg-card p-6">
         <p className="font-mono text-xs uppercase tracking-widest text-brand">
           [CONFIRMAR COM O CLIENTE]
         </p>
-        <p className="mt-2 max-w-2xl text-muted">
+        <p className="mt-2 max-w-2xl text-muted-foreground">
           Texto institucional pendente — história da loja, ano de fundação e diferencial de
-          atendimento. Ver <code className="text-paper">_references/pages/01_PONTOS_EM_ABERTO.md</code>.
+          atendimento. Ver <code className="text-card-foreground">_references/pages/01_PONTOS_EM_ABERTO.md</code>.
         </p>
       </div>
     </section>
