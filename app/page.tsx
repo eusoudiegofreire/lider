@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
 
-import { About } from "@/components/sections/About";
-import { CategoryShowcase } from "@/components/sections/CategoryShowcase";
 import { ContactCta } from "@/components/sections/ContactCta";
+import { FrentesDeTrabalho } from "@/components/sections/FrentesDeTrabalho";
+import { GarimpoDestaque } from "@/components/sections/GarimpoDestaque";
 import { Hero } from "@/components/sections/Hero";
 import { LocationSection } from "@/components/sections/LocationSection";
+import { PorQueComprar } from "@/components/sections/PorQueComprar";
 import { getHardwareStoreSchema } from "@/lib/schema";
 
+/**
+ * Título/description exatos de `copy-lider-home.md` §META. `title.absolute`
+ * evita que o template do layout raiz (`${NAP.name} | %s`) duplique o nome
+ * da marca — o título da Home já vem completo do copy.
+ */
 export const metadata: Metadata = {
-  title: "Loja em Ariquemes - RO",
+  title: {
+    absolute: "Líder Máquinas — Ferramentas e Ferragens em Ariquemes RO",
+  },
   description:
-    "Equipamentos para garimpo, ferramentas para produtor rural e ferramentas em geral em Ariquemes-RO. Loja física e atendimento pelo WhatsApp.",
+    "Ferragens, abrasivos, ferramentas e máquinas em Ariquemes, Rondônia. Garimpo, agro, obra, mecânica e pesca. Loja física com estoque e envio para o Norte.",
+  openGraph: {
+    title: "Líder Máquinas Ferragens e Abrasivos — Ariquemes, RO",
+    description: "Da roça ao garimpo, da obra ao rio. Tudo para quem trabalha pesado em Rondônia.",
+  },
   alternates: {
     canonical: "/",
   },
@@ -26,8 +38,9 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <Hero />
-      <About />
-      <CategoryShowcase />
+      <FrentesDeTrabalho />
+      <GarimpoDestaque />
+      <PorQueComprar />
       <LocationSection />
       <ContactCta />
     </>

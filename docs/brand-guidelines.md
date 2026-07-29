@@ -1,75 +1,64 @@
 # Brand Guidelines — Líder Máquinas e Ferramentas
 
-Fonte da verdade da identidade visual. Deriva do logo oficial (`public/logo-lider.jpg`) e substitui a paleta laranja/DLX usada nas Fases 1-3.
+Fonte da verdade da identidade visual, junto com `DESIGN.md` (a referência mais completa — este arquivo é o resumo de paleta/contraste). Substitui a paleta "Engrenagem e Chapa" (vermelho oxblood + Archivo Expanded + amarelo de sinalização, dark-hero), descartada em 2026-07-28 antes de qualquer commit, a pedido do usuário.
 
 ## Logo
 
 - Arquivo: `public/logo-lider.jpg` (150×150, JPG sem alpha, fundo branco embutido).
-- Composição: engrenagem (cinza-aço) à esquerda + wordmark "LÍDER MÁQUINAS" (bordô) à direita, dentro de uma "chapa" arredondada.
-- **Regra de uso:** nunca recolorir o logo nem aplicar crop circular — o wordmark chega perto da borda direita/inferior do quadro; um crop `rounded-full` corta a palavra "MAQUINAS" (já corrigido no Header nesta sessão anterior).
+- Composição: engrenagem (cinza-aço) à esquerda + wordmark "LÍDER MÁQUINAS" (vermelho) à direita, dentro de uma "chapa" arredondada.
+- **Regra de uso:** nunca recolorir o logo nem aplicar crop circular — o wordmark chega perto da borda direita/inferior do quadro.
 - Área de proteção mínima: pelo menos a largura do "L" de "LÍDER" em todos os lados.
-- Sobre fundo escuro, sempre exibir dentro de um chip/fundo claro (o próprio logo não tem versão para fundo escuro).
+- **A engrenagem do logo estático permanece** — só o elemento de UI animado (engrenagem girando no scroll) foi removido. O logo em si não muda.
+- Header agora é claro (fundo `branco`), então o logo aparece direto, sem chip escuro.
 
 ## Paleta
 
-### Cores de marca (extraídas do logo)
+### Cores de marca
 
 | Token | Hex | Papel |
 |---|---|---|
-| `brand` | `#8C292D` | Bordô/oxblood — cor primária, do wordmark da logo |
-| `brand-deep` | `#6E1F23` | Hover/pressed de botão primário, texto de ênfase extra |
-| `brand-light` | `#A83A3F` | Acentos sutis — **só sobre fundo claro** (ver contraste abaixo) |
-| `steel` | `#555868` | Cinza-azulado da engrenagem — cor secundária/neutra de marca |
-| `steel-light` | `#7B7F8F` | Variante clara do steel — **usar em vez de `steel` sobre fundo escuro** |
-| `steel-dark` | `#3A3D49` | Variante escura — bordas/divisores sobre fundo claro |
+| `vermelho` | `#9B1B1E` | Vermelho oxblood — cor de acento, CTA, link, borda de destaque |
+| `vermelho-vivo` | `#C1272D` | Hover/estado ativo do botão primário |
 
-### Neutros — variante clara (padrão do site) e escura (hero/rodapé/CTA)
+### Neutros
 
-O site deixa de ser dark-mode-first. **Fundo claro é o padrão de toda página; fundo escuro fica restrito a hero, rodapé e faixas de CTA pontuais.**
-
-| Papel | Token claro (padrão) | Token escuro (hero/footer/CTA) |
+| Token | Hex | Papel |
 |---|---|---|
-| Fundo de página | `paper` `#F4F1EA` | `ink` `#101211` |
-| Fundo de card/painel | `surface-light` `#EAE6DD` *(novo)* | `surface` `#181B19` |
-| Texto principal | `ink` `#101211` | `paper` `#F4F1EA` |
-| Texto secundário/legenda | `muted` `#6B655C` *(redefinido — antes `#9A948C`)* | `muted-dark` `#B5AFA6` *(novo — antes o site usava `#9A948C` também no escuro, e é isso que causava o parágrafo ilegível)* |
+| `branco` | `#FFFFFF` | Fundo principal de página |
+| `branco-frio` | `#F5F5F7` | Alternância de seção, fundo de card |
+| `tinta` | `#0B0B0C` | Texto principal / fundo da única seção escura (Garimpo) |
+| `tinta-suave` | `#6E6E73` | Texto secundário, legenda |
+| `linha` | `#E3E3E6` | Divisor decorativo 1px (não usar como borda interativa) |
+| `linha-forte` | `#94949B` | Borda de input, botão secundário, qualquer fronteira interativa |
 
-`ink` e `paper` continuam sendo o mesmo par de hex de antes — só invertem qual é "fundo" e qual é "texto" dependendo da seção (clara vs. escura). `muted` é redefinido porque o valor antigo (`#9A948C`) foi calibrado só para uso sobre fundo escuro; sobre o novo fundo claro padrão ele fica com contraste baixo.
+## Regras de contraste (WCAG 2.1, calculado)
 
-## Regras de contraste (WCAG 2.1, calculado — não estimado)
-
-Calculei a razão de contraste real de cada combinação candidata (fórmula de luminância relativa da W3C). AA = 4.5:1 (texto normal) / 3:1 (UI/texto grande). AAA = 7:1 / 4.5:1.
+AA = 4.5:1 (texto normal) / 3:1 (UI/texto grande/fronteira de componente). AAA = 7:1 / 4.5:1.
 
 | Combinação | Razão | Resultado |
 |---|---|---|
-| `ink` texto sobre `paper` fundo (corpo de texto padrão) | 16.67:1 | ✅ AAA |
-| `paper` texto sobre `ink` fundo (títulos em seção escura) | 16.67:1 | ✅ AAA |
-| `brand` texto sobre `paper` fundo | 7.54:1 | ✅ AAA |
-| `brand` texto sobre `ink` fundo | **2.21:1** | ❌ **FALHA** |
-| `brand-light` texto sobre `paper` fundo | 5.57:1 | ✅ AA |
-| `brand-light` texto sobre `ink` fundo | **2.99:1** | ❌ **FALHA** |
-| `paper` texto sobre `brand` fundo (botão primário) | 7.54:1 | ✅ AAA |
-| `steel` texto/borda sobre `paper` fundo | 6.24:1 | ✅ AA (AAA como componente de UI) |
-| `steel` texto/borda sobre `ink` fundo | **2.67:1** | ❌ **FALHA** |
-| `steel-light` borda sobre `ink` fundo | 4.72:1 | ✅ AAA (componente de UI) |
-| `steel-dark` borda sobre `paper` fundo | 9.58:1 | ✅ AAA |
-| `muted` (novo, `#6B655C`) texto sobre `paper` fundo | 5.11:1 | ✅ AA |
-| `muted-dark` (novo, `#B5AFA6`) texto sobre `ink` fundo | 8.64:1 | ✅ AAA |
-| ~~`muted` antigo (`#9A948C`) sobre `ink`~~ (bug relatado) | 6.26:1 | ⚠️ AA, mas abaixo de AAA — perceptualmente "lavado" em corpo de texto contínuo, por isso a leitura ruim reportada |
+| `tinta` texto sobre `branco` fundo | ~19.6:1 | ✅ AAA |
+| `tinta-suave` texto sobre `branco` fundo | 5.06:1 | ✅ AA (texto normal) |
+| `vermelho` texto sobre `branco` fundo | 8.17:1 | ✅ AAA |
+| `branco` texto sobre `vermelho` fundo (botão primário) | 8.17:1 | ✅ AAA |
+| `branco` texto sobre `vermelho-vivo` fundo (hover) | 5.84:1 | ✅ AA |
+| `vermelho` texto/borda sobre `tinta` fundo | **2.41:1** | ❌ **FALHA** |
+| `branco` texto sobre `tinta` fundo (seção Garimpo) | ~19.6:1 | ✅ AAA |
+| `linha` (#E3E3E6) sobre `branco` | 1.28:1 | Decorativo apenas — não é fronteira de componente |
+| `linha-forte` (#94949B) sobre `branco` | ~2.99:1 | ✅ Bate o piso de 3:1 pra fronteira interativa (SC 1.4.11) |
 
-### Regras derivadas (aplicar daqui pra frente)
+### Regras derivadas
 
-1. **`brand` e `brand-light` nunca como cor de texto/borda sobre fundo escuro (`ink`/`surface`).** Falha WCAG (2.21:1 e 2.99:1). Sobre `ink`, usar `paper` para texto de ênfase — não existe uma variante de `brand` que funcione sobre fundo escuro nesta paleta.
-2. **`steel` (base) nunca como texto/borda sobre fundo escuro** — usar `steel-light` nesse contexto.
-3. Sobre fundo claro, `brand`, `brand-deep`, `steel` e `steel-dark` funcionam bem como texto ou borda; `brand-light` só até AA (usar como acento, não como corpo de texto longo).
-4. Botão primário: sempre `brand`/`brand-deep` de fundo com **texto `paper`** (nunca `ink` — essa era a falha do botão antes desta sessão, 2.21:1).
+1. **`vermelho`/`vermelho-vivo` nunca como texto/borda sobre `tinta`.** Falha WCAG mesmo pro limiar de componente (2.41:1 < 3:1). Na seção Garimpo, ênfase é sempre `branco` (peso/tamanho) ou botão com fundo `branco` sólido/texto `tinta` — nunca vermelho em cima de preto.
+2. **`linha` é decorativa, não interativa.** Pra input, botão secundário, qualquer elemento onde o usuário precisa identificar "isto é clicável", usar `linha-forte`.
+3. **`tinta-suave` pode ser corpo de texto secundário**, não só legenda pequena — passa AA pra texto normal (5.06:1).
+4. Botão primário: fundo `vermelho`/`vermelho-vivo`, texto sempre `branco`.
 
-## Tipografia (mantida — não fazia parte do problema relatado)
+## Tipografia
 
-- Display: Barlow Condensed (títulos, uppercase, peso 600-800)
-- Corpo: Work Sans
-- Mono/acento: IBM Plex Mono (labels, badges, dados técnicos)
+- Display + corpo: Instrument Sans (700/-0.03em em títulos grandes, 400 no corpo de 17px) — troca o Archivo Expanded/Inter Tight do sistema anterior.
+- Mono/rótulo: Geist Mono (ficha técnica, anotação técnica, labels) — troca o IBM Plex Mono do sistema anterior (função idêntica, fonte trocada por decisão do novo brief).
 
-## Onde fundo escuro continua permitido
+## Onde fundo escuro é permitido
 
-Hero da Home, Rodapé (Footer global) e faixas de CTA final (`ContactCta`/`CategoryCta`). Todo o resto do site (About, vitrines, FAQ, cards de categoria, corpo das páginas de categoria) passa a ser fundo claro por padrão.
+**Só a seção "Garimpo em destaque".** Diferente do sistema anterior (que também tinha Hero, Rodapé e faixas de CTA em dark) — agora Header, Footer, Hero e CTAs são todos claros. Uma seção escura na página inteira, e ela significa alguma coisa: é a única frente de trabalho que quebra o raio local de atendimento.

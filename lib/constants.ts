@@ -46,6 +46,32 @@ export function getWhatsappHref(message?: string): string {
   return `https://api.whatsapp.com/send/?phone=${digits}&${text}&type=phone_number&app_absent=0`;
 }
 
+/** @lidermaquinaseferramentas — citado no copy final (seção 5/7), sem confirmação separada em NAP pois é handle público, não dado de contato estruturado. */
+export const INSTAGRAM_HANDLE = "@lidermaquinaseferramentas";
+
+/**
+ * Faixa mono de horário do Hero (`copy-lider-home.md` §1: "SEG A SEX [X]H ÀS
+ * [X]H · SÁB [X]H ÀS [X]H") — preenchida com o horário real já confirmado em
+ * `OPENING_HOURS`, não um placeholder.
+ */
+export function getHeroHoursLine(): string {
+  const weekday = OPENING_HOURS.find((oh) => oh.dayOfWeek.includes("Monday"));
+  const saturday = OPENING_HOURS.find((oh) => oh.dayOfWeek.includes("Saturday"));
+  const parts = [
+    weekday ? `SEG A SEX ${weekday.opens} ÀS ${weekday.closes}` : null,
+    saturday ? `SÁB ${saturday.opens} ÀS ${saturday.closes}` : null,
+  ].filter(Boolean);
+  return `${NAP.address.locality.toUpperCase()} · ${NAP.address.region} — ${parts.join(" · ")}`;
+}
+
+/** Link de rota até a loja (Google Maps Directions), a partir do endereço confirmado em `NAP`. */
+export function getDirectionsHref(): string {
+  const destination = encodeURIComponent(
+    `${NAP.address.street}, ${NAP.address.locality} - ${NAP.address.region}, ${NAP.address.postalCode}`,
+  );
+  return `https://www.google.com/maps/dir/?api=1&destination=${destination}`;
+}
+
 export type AreaServedMode = "regional" | "local";
 
 export type Category = {
@@ -59,9 +85,115 @@ export type Category = {
 export const CATEGORIES: Category[] = [
   { slug: "garimpo", label: "Garimpo", areaMode: "regional", phase: 1 },
   { slug: "produtor-rural", label: "Produtor Rural", areaMode: "local", phase: 1 },
-  { slug: "ferramentas", label: "Ferramentas", areaMode: "local", phase: 1 },
+  { slug: "ferramentas", label: "Ferramentas e Construção", areaMode: "local", phase: 1 },
   { slug: "mecanica", label: "Mecânica", areaMode: "local", phase: 2 },
+  { slug: "abrasivos", label: "Abrasivos", areaMode: "local", phase: 2 },
+  { slug: "pesca", label: "Pesca", areaMode: "local", phase: 2 },
   { slug: "jardinagem", label: "Jardinagem", areaMode: "local", phase: 2 },
+  { slug: "veterinario", label: "Veterinário", areaMode: "local", phase: 2 },
+];
+
+/**
+ * As 8 frentes de trabalho da Home (seção 2 do `copy-lider-home.md`, texto
+ * final aprovado — não reescrever). `phase: 1` tem página própria (link
+ * interno); `phase: 2` ainda não tem página, então o card inteiro abre o
+ * WhatsApp com uma mensagem específica da frente em vez de linkar pra uma
+ * rota que não existe.
+ */
+export type FrenteDeTrabalho = {
+  slug: string;
+  numero: string;
+  label: string;
+  blurb: string;
+  atende: string;
+  envio: string;
+  destaque?: boolean;
+  hasPage: boolean;
+  whatsappMessage: string;
+};
+
+export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
+  {
+    slug: "garimpo",
+    numero: "01",
+    label: "Garimpo",
+    blurb: "Bomba, mangueira, peneira, motor, correia e peça de reposição.",
+    atende: "RO · MT · AM · PA",
+    envio: "Sim, para todo o Norte",
+    destaque: true,
+    hasPage: true,
+    whatsappMessage: "Olá! Vim pelo site e quero orçamento de equipamento de garimpo.",
+  },
+  {
+    slug: "produtor-rural",
+    numero: "02",
+    label: "Produtor Rural",
+    blurb: "Arame, cerca, roçadeira, motobomba, pulverizador e equipamento de proteção.",
+    atende: "Ariquemes e região",
+    envio: "Retirada na loja",
+    hasPage: true,
+    whatsappMessage: "Olá! Vim pelo site e preciso de item para produtor rural.",
+  },
+  {
+    slug: "ferramentas",
+    numero: "03",
+    label: "Ferramentas e Construção",
+    blurb: "Furadeira, betoneira, carrinho de mão, trena, nível e material de obra.",
+    atende: "Ariquemes e região",
+    envio: "Retirada na loja",
+    hasPage: true,
+    whatsappMessage: "Olá! Vim pelo site e quero saber sobre ferramentas e material de construção.",
+  },
+  {
+    slug: "mecanica",
+    numero: "04",
+    label: "Mecânica",
+    blurb: "Chave, macaco, compressor, graxa, filtro e bateria.",
+    atende: "Ariquemes e região",
+    envio: "Retirada na loja",
+    hasPage: false,
+    whatsappMessage: "Olá! Vim pelo site e quero saber sobre itens de mecânica.",
+  },
+  {
+    slug: "abrasivos",
+    numero: "05",
+    label: "Abrasivos",
+    blurb: "Disco de corte, lixa, rebolo e escova de aço. Do desbaste ao acabamento.",
+    atende: "Ariquemes e região",
+    envio: "Consulte",
+    hasPage: false,
+    whatsappMessage: "Olá! Vim pelo site e quero saber sobre abrasivos.",
+  },
+  {
+    slug: "pesca",
+    numero: "06",
+    label: "Pesca",
+    blurb: "Vara, molinete, linha, anzol, isca e caixa térmica que segura gelo no sol.",
+    atende: "Ariquemes e região",
+    envio: "Retirada na loja",
+    hasPage: false,
+    whatsappMessage: "Olá! Vim pelo site e quero saber sobre artigos de pesca.",
+  },
+  {
+    slug: "jardinagem",
+    numero: "07",
+    label: "Jardinagem",
+    blurb: "Motosserra, aparador, tesoura de poda, mangueira e adubo.",
+    atende: "Ariquemes e região",
+    envio: "Retirada na loja",
+    hasPage: false,
+    whatsappMessage: "Olá! Vim pelo site e quero saber sobre jardinagem.",
+  },
+  {
+    slug: "veterinario",
+    numero: "08",
+    label: "Veterinário",
+    blurb: "Vermífugo, seringa, brinco, sal mineral e item de manejo.",
+    atende: "Ariquemes e região",
+    envio: "Retirada na loja",
+    hasPage: false,
+    whatsappMessage: "Olá! Vim pelo site e quero saber sobre itens veterinários.",
+  },
 ];
 
 /** Estados atendidos pela linha Garimpo (alcance regional amplo). */

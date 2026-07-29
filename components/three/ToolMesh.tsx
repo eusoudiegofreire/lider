@@ -32,37 +32,37 @@ export function ToolMesh({ pointer, scrollProgress }: ToolMeshProps) {
       {/* Corpo principal */}
       <mesh position={[0, 0, 0]} castShadow>
         <boxGeometry args={[1.6, 0.7, 0.7]} />
-        <meshStandardMaterial color="#2E332F" roughness={0.5} metalness={0.3} />
+        <meshStandardMaterial color="#242428" roughness={0.45} metalness={0.35} />
       </mesh>
 
       {/* Cabo/empunhadura */}
       <mesh position={[-0.4, -0.75, 0]} rotation={[0, 0, 0.35]} castShadow>
         <boxGeometry args={[0.5, 1, 0.5]} />
-        <meshStandardMaterial color="#101211" roughness={0.6} metalness={0.2} />
+        <meshStandardMaterial color="#0f0f11" roughness={0.6} metalness={0.2} />
       </mesh>
 
       {/* Bateria */}
       <mesh position={[-0.65, -1.35, 0]} castShadow>
         <boxGeometry args={[0.6, 0.35, 0.55]} />
-        <meshStandardMaterial color="#FF5A1A" roughness={0.4} metalness={0.2} />
+        <meshStandardMaterial color="#9b1b1e" roughness={0.4} metalness={0.2} />
       </mesh>
 
       {/* Mandril */}
       <mesh position={[1, 0, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
         <cylinderGeometry args={[0.25, 0.3, 0.4, 16]} />
-        <meshStandardMaterial color="#FF5A1A" roughness={0.4} metalness={0.4} />
+        <meshStandardMaterial color="#9b1b1e" roughness={0.4} metalness={0.4} />
       </mesh>
 
       {/* Broca */}
       <mesh position={[1.45, 0, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
         <coneGeometry args={[0.06, 0.5, 12]} />
-        <meshStandardMaterial color="#F4F1EA" roughness={0.3} metalness={0.6} />
+        <meshStandardMaterial color="#e3e3e6" roughness={0.3} metalness={0.6} />
       </mesh>
 
       {/* Gatilho */}
       <mesh position={[0.05, -0.35, 0]} castShadow>
         <boxGeometry args={[0.15, 0.3, 0.3]} />
-        <meshStandardMaterial color="#101211" roughness={0.6} />
+        <meshStandardMaterial color="#0f0f11" roughness={0.6} />
       </mesh>
     </group>
   );

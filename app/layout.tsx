@@ -1,26 +1,24 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Work_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Instrument_Sans, Geist_Mono } from "next/font/google";
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { WhatsAppFloatingButton } from "@/components/layout/WhatsAppFloatingButton";
 import { NAP, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
-const barlowCondensed = Barlow_Condensed({
-  variable: "--font-barlow-condensed",
-  weight: ["600", "700", "800"],
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
+  display: "swap",
 });
 
-const workSans = Work_Sans({
-  variable: "--font-work-sans",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  weight: ["500"],
   subsets: ["latin"],
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
-  weight: ["400", "500"],
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -50,12 +48,13 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${barlowCondensed.variable} ${workSans.variable} ${ibmPlexMono.variable} h-full`}
+      className={`${instrumentSans.variable} ${geistMono.variable} h-full`}
     >
       <body className="flex min-h-full flex-col font-sans antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppFloatingButton />
       </body>
     </html>
   );

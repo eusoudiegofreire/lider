@@ -1,27 +1,43 @@
-import { Button } from "@/components/ui/Button";
-import { NAP, getWhatsappHref } from "@/lib/constants";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { getWhatsappHref } from "@/lib/constants";
+
+/**
+ * "Contato" (`copy-lider-home.md` §6, texto e mensagens pré-preenchidas
+ * exatas). Cada botão abre o WhatsApp já com a mensagem certa pro assunto —
+ * evita o cliente ter que digitar o contexto de novo.
+ */
+const ASSUNTOS = [
+  { label: "Orçamento de garimpo", message: "Olá! Vim pelo site e quero orçamento de equipamento de garimpo." },
+  { label: "Produtor rural", message: "Olá! Vim pelo site e preciso de item para produtor rural." },
+  {
+    label: "Ferramentas e obra",
+    message: "Olá! Vim pelo site e quero saber sobre ferramentas e material de construção.",
+  },
+  { label: "Outro assunto", message: "Olá! Vim pelo site e queria tirar uma dúvida." },
+];
 
 export function ContactCta() {
   return (
-    <section className="section-dark border-t border-border bg-background py-16">
-      <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="font-display text-2xl uppercase text-foreground">
-            Venha conferir pessoalmente
-          </p>
-          <p className="mt-2 text-muted-foreground">
-            {NAP.address.street} — {NAP.address.locality}/{NAP.address.region}
-          </p>
-          {/* brand (bordô) falha contraste sobre fundo escuro (2.21:1) — ver
-              docs/brand-guidelines.md — ênfase aqui é por peso, não cor. */}
-          <p className="mt-1 text-sm text-muted-foreground">
-            Tel/WhatsApp: <span className="font-mono text-foreground">{NAP.phone}</span>
-          </p>
-        </div>
+    <section className="border-t border-divider bg-card py-[72px] md:py-[120px]">
+      <div className="mx-auto max-w-6xl px-6">
+        <SectionHeading
+          title="Fala com a gente."
+          description="Manda a foto da peça, o modelo da máquina ou só a dúvida mesmo. A gente responde em horário comercial."
+        />
 
-        <Button href={getWhatsappHref("Olá! Vim pelo site da Líder Máquinas.")} size="lg">
-          Falar no WhatsApp
-        </Button>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {ASSUNTOS.map((assunto) => (
+            <a
+              key={assunto.label}
+              href={getWhatsappHref(assunto.message)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-border px-5 py-4 text-center font-sans text-sm font-medium text-foreground transition-colors hover:border-brand hover:text-brand"
+            >
+              {assunto.label}
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

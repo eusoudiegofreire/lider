@@ -1,60 +1,69 @@
 @import "tailwindcss";
 
 /*
- * Arquitetura de tokens em 3 camadas (ver docs/brand-guidelines.md).
+ * Arquitetura de tokens em 3 camadas (ver DESIGN.md + docs/brand-guidelines.md).
  *
- * 1. Primitivos — valores brutos extraídos da marca/logo.
- * 2. Semânticos — papéis (background/foreground/card/border/muted) que
- *    resolvem pra um primitivo diferente dentro de `.section-dark`. Todo
- *    componente deve preferir a camada semântica; os primitivos ficam
- *    disponíveis como escape-hatch pra casos que não devem variar por seção
- *    (ex: o vermelho da marca em botões, que é sempre `brand`, nunca "o
- *    vermelho da seção clara").
+ * 1. Primitivos — valores brutos da paleta "A Ferramenta como Objeto de
+ *    Design" (2026-07-28, substitui o sistema "Engrenagem e Chapa").
+ * 2. Semânticos — papéis (background/foreground/card/border/divider/muted)
+ *    que resolvem pra um primitivo diferente dentro de `.section-dark`.
+ *    Componente novo deve preferir a camada semântica; primitivos ficam
+ *    disponíveis como escape-hatch pro que não varia por seção (ex: `brand`
+ *    em botões, sempre vermelho, nunca "a cor de acento da seção").
+ *
+ *    Nomes de token (brand/paper/ink/cloud/charcoal/stone/steel) mantidos do
+ *    sistema anterior de propósito — só os valores hex mudaram e dois nomes
+ *    (`signal`, `bg-grid-technical`) foram removidos por não existirem mais
+ *    na nova direção. Isso evita reescrever toda classe Tailwind da base.
+ *
+ *    IMPORTANTE (Tailwind v4): usar `@theme` puro, nunca `@theme inline` —
+ *    `inline` faz o Tailwind gravar o valor resolvido direto na classe
+ *    utilitária em vez de manter `var(--color-x)`, o que quebra silenciosamente
+ *    o override de `.section-dark` (aprendido na migração anterior, ver
+ *    memória do projeto).
  */
 @theme {
   /* ---- Primitivos: marca (fixos, não variam entre seção clara/escura) ---- */
-  --color-brand: #8c292d;
-  --color-brand-deep: #6e1f23;
-  --color-brand-light: #a83a3f;
-  --color-steel: #555868;
-  --color-steel-light: #7b7f8f;
-  --color-steel-dark: #3a3d49;
+  --color-brand: #9b1b1e;
+  --color-brand-hover: #c1272d;
 
-  /* ---- Primitivos: neutros brutos ---- */
-  --color-paper: #f4f1ea;
-  --color-ink: #101211;
-  --color-cloud: #eae6dd;
-  --color-charcoal: #181b19;
-  --color-stone: #6b655c;
-  --color-stone-dark: #b5afa6;
+  /* ---- Primitivos: neutros claros ---- */
+  --color-paper: #ffffff; /* branco — fundo principal */
+  --color-cloud: #f5f5f7; /* branco-frio — alternância de seção / card claro */
+  --color-stone: #6e6e73; /* tinta-suave — texto secundário sobre claro (5.06:1) */
+  --color-steel: #94949b; /* linha-forte — fronteira interativa sobre claro (~3:1) */
+  --color-hairline: #e3e3e6; /* linha — divisor decorativo, não interativo (1.28:1) */
 
-  /* ---- Semânticos: papel de cada token, seção clara = padrão ---- */
+  /* ---- Primitivos: neutros escuros (só a seção Garimpo os usa) ---- */
+  --color-ink: #0b0b0c; /* tinta — texto principal / fundo da única seção escura */
+  --color-charcoal: #17171a; /* painel dentro da seção escura, se precisar */
+  --color-stone-dark: #a8a8ae; /* texto secundário sobre escuro (~8.5:1) */
+  --color-steel-light: #5e5e64; /* fronteira interativa sobre escuro (~3:1) */
+
+  /* ---- Semânticos: papel de cada token, seção clara = padrão do site ---- */
   --color-background: var(--color-paper);
   --color-foreground: var(--color-ink);
   --color-card: var(--color-cloud);
   --color-card-foreground: var(--color-ink);
   --color-muted-foreground: var(--color-stone);
   --color-border: var(--color-steel);
+  --color-divider: var(--color-hairline);
 
-  --font-display: var(--font-barlow-condensed);
-  --font-sans: var(--font-work-sans);
-  --font-mono: var(--font-ibm-plex-mono);
-
-  --background-image-grid-technical: linear-gradient(var(--color-steel) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-steel) 1px, transparent 1px);
+  --font-display: var(--font-instrument-sans);
+  --font-sans: var(--font-instrument-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 /*
- * Seção escura (Hero, Footer, faixas de CTA) — redefine os tokens
- * semânticos, não os primitivos. Qualquer componente que já usa
- * `bg-background`/`text-foreground`/`bg-card`/`text-muted-foreground`/
- * `border-border` herda a versão escura automaticamente ao ficar dentro de
- * um wrapper com esta classe, sem precisar de classes condicionais.
+ * Seção escura — reservada exclusivamente à "Garimpo em destaque" (a única
+ * frente de trabalho que quebra o raio local de atendimento). Header, Footer,
+ * Hero e CTAs são todos claros agora — diferente do sistema anterior, que
+ * também escurecia essas quatro áreas.
  *
- * `brand`/`brand-light` continuam fora deste bloco de propósito — por regra
- * de contraste (ver docs/brand-guidelines.md) eles não têm variante que
- * funcione como texto sobre fundo escuro, então não fazem parte do sistema
- * que "inverte" — texto de ênfase em seção escura usa `foreground` (paper).
+ * `brand`/`brand-hover` ficam fora deste bloco de propósito: não têm
+ * variante que funcione como texto/borda sobre fundo escuro (2.41:1, falha
+ * WCAG — ver docs/brand-guidelines.md). Ênfase em `.section-dark` é sempre
+ * `foreground` (peso/tamanho) ou botão invertido (fundo `paper`/texto `ink`).
  */
 .section-dark {
   --color-background: var(--color-ink);
@@ -63,9 +72,37 @@
   --color-card-foreground: var(--color-paper);
   --color-muted-foreground: var(--color-stone-dark);
   --color-border: var(--color-steel-light);
+  --color-divider: rgba(255, 255, 255, 0.14);
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
+}
+
+/* Entrada discreta do produto no Hero/Garimpo (DESIGN.md §6, motion 3): fade + escala 0.98→1. */
+@keyframes product-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-product-in {
+  animation: product-in 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

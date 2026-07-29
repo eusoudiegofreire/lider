@@ -2,22 +2,23 @@ import Link from "next/link";
 import { clsx } from "clsx";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "invert";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-display uppercase tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2 rounded-lg font-sans font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:opacity-50 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {
   // texto sempre claro no primário: --color-brand é um vermelho escuro
   // (oxblood), então o texto é sempre `paper`, independente da seção — não
   // "inverte" porque o fundo do botão já é fixo (brand), não a seção.
-  primary: "bg-brand text-paper hover:bg-brand-deep",
-  // secondary/ghost aparecem tanto em seção clara quanto escura (ex: o botão
-  // "Carregar mapa" fica numa seção clara) — usam os tokens semânticos pra
-  // herdar a cor certa automaticamente em vez de fixar `text-paper`.
+  primary: "bg-brand text-paper hover:bg-brand-hover",
   secondary: "border border-border text-foreground hover:border-brand hover:text-brand",
   ghost: "text-foreground hover:text-brand",
+  // Reservado à seção Garimpo (fundo `tinta`): `brand` sobre `tinta` falha
+  // WCAG (2.41:1, ver DESIGN.md §2 — The No-Red-On-Dark Rule), então o CTA
+  // mais crítico da seção escura inverte pra fundo `paper`/texto `ink`.
+  invert: "bg-paper text-ink hover:bg-cloud",
 };
 
 const sizes: Record<Size, string> = {

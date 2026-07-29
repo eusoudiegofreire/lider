@@ -6,23 +6,17 @@ import { CATEGORIES, NAP, getWhatsappHref } from "@/lib/constants";
 
 export function Header() {
   return (
-    <header className="section-dark border-b border-border bg-background">
+    <header className="border-b border-divider bg-background">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center">
-          {/* logo-lider.jpg já traz o wordmark "Líder Máquinas" embutido e tem
-              fundo branco (sem alpha) — chip branco arredondado (mesmo tom da
-              própria logo) evita que apareça como uma caixa solta sobre o
-              header escuro, sem cortar o texto num crop circular. */}
-          <span className="flex items-center rounded-md bg-paper p-1.5">
-            <Image
-              src="/logo-lider.jpg"
-              alt={NAP.name}
-              width={150}
-              height={150}
-              className="h-9 w-9 rounded-sm"
-              priority
-            />
-          </span>
+          <Image
+            src="/logo-lider.jpg"
+            alt={NAP.name}
+            width={150}
+            height={150}
+            className="h-10 w-10 rounded-sm"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
@@ -30,14 +24,14 @@ export function Header() {
             <Link
               key={category.slug}
               href={`/${category.slug}`}
-              className="font-display text-sm uppercase tracking-wide text-muted-foreground transition-colors hover:text-brand"
+              className="font-sans text-sm text-muted-foreground transition-colors hover:text-brand"
             >
               {category.label}
             </Link>
           ))}
           <Link
             href="/blog"
-            className="font-display text-sm uppercase tracking-wide text-muted-foreground transition-colors hover:text-brand"
+            className="font-sans text-sm text-muted-foreground transition-colors hover:text-brand"
           >
             Blog
           </Link>

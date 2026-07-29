@@ -44,9 +44,9 @@ export function HeroCanvas() {
         camera={{ position: [2.4, 1.2, 2.8], fov: 40 }}
         gl={{ antialias: true }}
       >
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[3, 4, 2]} intensity={1.2} castShadow />
-        <directionalLight position={[-3, -1, -2]} intensity={0.3} color="#FF5A1A" />
+        <ambientLight intensity={0.8} />
+        <directionalLight position={[3, 4, 2]} intensity={1.3} castShadow />
+        <directionalLight position={[-3, -1, -2]} intensity={0.25} color="#ffffff" />
         <ToolMesh pointer={pointer} scrollProgress={scrollProgress} />
       </Canvas>
     </div>
