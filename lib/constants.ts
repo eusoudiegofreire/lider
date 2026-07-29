@@ -5,15 +5,18 @@
 export const NAP = {
   name: "Líder Máquinas e Ferramentas",
   address: {
-    street: "Av. Capitão Sílvio, Áreas Especiais 01",
+    street: "Av. Cap. Silvio, Áreas Especiais 01",
     locality: "Ariquemes",
     region: "RO",
     postalCode: "76870-020",
     country: "BR",
   },
+  /** Coordenadas do pin real do Google Meu Negócio (confirmado 2026-07-29 via
+   * https://maps.app.goo.gl/bAGy35TvZpj8W4N47) — substitui a estimativa
+   * anterior, que estava a ~1km de distância do local real. */
   geo: {
-    latitude: -9.9133,
-    longitude: -63.0419,
+    latitude: -9.9204513,
+    longitude: -63.0359876,
   },
   /** Telefone comercial da loja. */
   phone: "(69) 3536-4929",

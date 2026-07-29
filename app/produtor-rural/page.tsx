@@ -4,6 +4,7 @@ import { CategoryCta } from "@/components/sections/category/CategoryCta";
 import { CategoryFaq } from "@/components/sections/category/CategoryFaq";
 import { CategoryHero } from "@/components/sections/category/CategoryHero";
 import { ProductLineupPlaceholder } from "@/components/sections/category/ProductLineupPlaceholder";
+import { NAP } from "@/lib/constants";
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -18,8 +19,7 @@ export const metadata: Metadata = {
 const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Onde comprar ferramentas para produtor rural em Ariquemes?",
-    answer:
-      "Na loja física da Líder Máquinas e Ferramentas, na Av. Capitão Sílvio, 3395, Setor 1, Ariquemes - RO, ou pelo WhatsApp.",
+    answer: `Na loja física da Líder Máquinas e Ferramentas, na ${NAP.address.street}, ${NAP.address.locality} - ${NAP.address.region}, ou pelo WhatsApp.`,
   },
   {
     question: "A Líder atende produtores de cidades vizinhas a Ariquemes?",
