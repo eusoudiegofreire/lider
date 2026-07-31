@@ -45,7 +45,17 @@ export function Hero() {
         />
       </div>
 
-      {/* Foto desktop: sangra até a borda direita da viewport, funde com o branco à esquerda. */}
+      {/* Foto desktop: sangra até a borda direita da viewport, funde com o branco à esquerda.
+          A máscara é puramente horizontal (to right) — sem clip-path em lugar nenhum. O que
+          parecia "corte diagonal" era a própria foto: o chão claro (embaixo) some no branco
+          bem antes da porta escura da loja (em cima) sob a MESMA % de transparência, porque
+          o chão já começa perto do branco e a porta não. Duas correções pra isso, não uma:
+          1) `brightness-90` nivela um pouco o contraste da foto antes da máscara agir, reduzindo
+             a diferença de luminância entre chão e porta (sem achatar a foto real).
+          2) A máscara ganhou um stop intermediário (curva com "ease", não 2 pontos lineares) e
+             foi alongada de 30% pra 44% — o corte linear de 30% já ficava 97% opaco aos 29%,
+             o que lia como transição dura ("colada"); o novo perfil suaviza a entrada e distribui
+             a transição por mais largura do painel. */}
       <div className="absolute inset-y-0 right-0 hidden w-[55%] overflow-hidden md:block">
         <Image
           src="/lider hero.jpg"
@@ -53,10 +63,14 @@ export function Hero() {
           fill
           priority
           sizes="(min-width: 768px) 55vw, 100vw"
-          className="animate-product-in object-cover object-[center_25%] [mask-image:linear-gradient(to_right,transparent,black_30%)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_30%)]"
+          className="animate-product-in object-cover object-[center_22%] brightness-90 [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.55)_22%,black_44%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.55)_22%,black_44%)]"
         />
-        {/* Harmoniza a temperatura da foto com o vermelho da marca — sutil, não descaracteriza a foto real. */}
-        <div aria-hidden="true" className="absolute inset-0 bg-brand/10 mix-blend-multiply" />
+        {/* Harmoniza a temperatura da foto com o vermelho da marca — mascarado igual à foto, senão
+            o tom vermelho (mix-blend-multiply) vaza pro lado branco e a "fusão" nunca fica 100% pura. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-brand/10 mix-blend-multiply [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.55)_22%,black_44%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.55)_22%,black_44%)]"
+        />
       </div>
 
       <div className="relative z-10 mx-auto grid max-w-6xl gap-10 px-6 py-[72px] md:grid-cols-2 md:items-center md:py-[120px]">
