@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { CATEGORY_ICONS } from "@/components/icons/CategoryIcons";
 import { Card } from "@/components/ui/Card";
-import { FichaTecnica } from "@/components/ui/FichaTecnica";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { FRENTES_DE_TRABALHO, getWhatsappHref } from "@/lib/constants";
@@ -28,11 +27,7 @@ export function FrentesDeTrabalho() {
             const Icon = CATEGORY_ICONS[frente.slug];
 
             const cardBody = (
-              <Card
-                className={`h-full transition-colors group-hover:border-brand ${
-                  frente.destaque ? "border-brand" : ""
-                }`}
-              >
+              <Card className="h-full transition-colors group-hover:border-brand">
                 <div className="flex items-start justify-between">
                   <Icon aria-hidden="true" className="h-8 w-8 text-steel" />
                   <span className="font-mono text-xs text-muted-foreground">{frente.numero}</span>
@@ -40,8 +35,14 @@ export function FrentesDeTrabalho() {
                 <p className="mt-4 font-display text-xl font-semibold text-card-foreground">
                   {frente.label}
                 </p>
-                <p className="mt-2 text-sm text-muted-foreground">{frente.blurb}</p>
-                <FichaTecnica categoria={frente.label} atende={frente.atende} envio={frente.envio} />
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {frente.blurb} {frente.contexto}
+                </p>
+                {frente.envioRegional ? (
+                  <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.08em] text-brand">
+                    {frente.envioRegional}
+                  </p>
+                ) : null}
               </Card>
             );
 

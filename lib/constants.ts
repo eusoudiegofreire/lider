@@ -98,19 +98,24 @@ export const CATEGORIES: Category[] = [
 
 /**
  * As 8 frentes de trabalho da Home (seção 2 do `copy-lider-home.md`, texto
- * final aprovado — não reescrever). `phase: 1` tem página própria (link
- * interno); `phase: 2` ainda não tem página, então o card inteiro abre o
- * WhatsApp com uma mensagem específica da frente em vez de linkar pra uma
- * rota que não existe.
+ * de `label`/`blurb` final aprovado — não reescrever). `phase: 1` tem página
+ * própria (link interno); `phase: 2` ainda não tem página, então o card
+ * inteiro abre o WhatsApp com uma mensagem específica da frente em vez de
+ * linkar pra uma rota que não existe.
+ *
+ * `contexto`: frase de complemento (não é do copy original aprovado — escrita
+ * nesta revisão pra substituir os campos ATENDE/ENVIO nos cards, que eram
+ * repetitivos entre categorias — ver DESIGN.md). Pode ser revisada livremente.
+ * `envioRegional`: só a Garimpo tem — é a única frente que quebra o raio
+ * local (o resto é `undefined`, o card não mostra nada no lugar).
  */
 export type FrenteDeTrabalho = {
   slug: string;
   numero: string;
   label: string;
   blurb: string;
-  atende: string;
-  envio: string;
-  destaque?: boolean;
+  contexto: string;
+  envioRegional?: string;
   hasPage: boolean;
   whatsappMessage: string;
 };
@@ -121,9 +126,8 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     numero: "01",
     label: "Garimpo",
     blurb: "Bomba, mangueira, peneira, motor, correia e peça de reposição.",
-    atende: "RO · MT · AM · PA",
-    envio: "Sim, para todo o Norte",
-    destaque: true,
+    contexto: "Pra manter o garimpo rodando sem perder dia de trabalho.",
+    envioRegional: "Enviamos para RO, MT, AM e PA",
     hasPage: true,
     whatsappMessage: "Olá! Vim pelo site e quero orçamento de equipamento de garimpo.",
   },
@@ -132,8 +136,7 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     numero: "02",
     label: "Produtor Rural",
     blurb: "Arame, cerca, roçadeira, motobomba, pulverizador e equipamento de proteção.",
-    atende: "Ariquemes e região",
-    envio: "Retirada na loja",
+    contexto: "Pra quem cuida da propriedade todo dia, sem depender de buscar em outra cidade.",
     hasPage: true,
     whatsappMessage: "Olá! Vim pelo site e preciso de item para produtor rural.",
   },
@@ -142,8 +145,7 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     numero: "03",
     label: "Ferramentas e Construção",
     blurb: "Furadeira, betoneira, carrinho de mão, trena, nível e material de obra.",
-    atende: "Ariquemes e região",
-    envio: "Retirada na loja",
+    contexto: "Da reforma pequena à obra do zero — o que pedreiro e marceneiro pedem primeiro.",
     hasPage: true,
     whatsappMessage: "Olá! Vim pelo site e quero saber sobre ferramentas e material de construção.",
   },
@@ -152,8 +154,7 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     numero: "04",
     label: "Mecânica",
     blurb: "Chave, macaco, compressor, graxa, filtro e bateria.",
-    atende: "Ariquemes e região",
-    envio: "Retirada na loja",
+    contexto: "Ferramenta de oficina de verdade, sem precisar inventar solução.",
     hasPage: false,
     whatsappMessage: "Olá! Vim pelo site e quero saber sobre itens de mecânica.",
   },
@@ -162,8 +163,7 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     numero: "05",
     label: "Abrasivos",
     blurb: "Disco de corte, lixa, rebolo e escova de aço. Do desbaste ao acabamento.",
-    atende: "Ariquemes e região",
-    envio: "Consulte",
+    contexto: "O grão certo pro material certo — evita gastar disco à toa.",
     hasPage: false,
     whatsappMessage: "Olá! Vim pelo site e quero saber sobre abrasivos.",
   },
@@ -172,8 +172,7 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     numero: "06",
     label: "Pesca",
     blurb: "Vara, molinete, linha, anzol, isca e caixa térmica que segura gelo no sol.",
-    atende: "Ariquemes e região",
-    envio: "Retirada na loja",
+    contexto: "Pro dia de pescaria no rio ou na represa, sem faltar o essencial.",
     hasPage: false,
     whatsappMessage: "Olá! Vim pelo site e quero saber sobre artigos de pesca.",
   },
@@ -182,8 +181,7 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     numero: "07",
     label: "Jardinagem",
     blurb: "Motosserra, aparador, tesoura de poda, mangueira e adubo.",
-    atende: "Ariquemes e região",
-    envio: "Retirada na loja",
+    contexto: "Pra manter quintal, sítio ou área verde sempre em ordem.",
     hasPage: false,
     whatsappMessage: "Olá! Vim pelo site e quero saber sobre jardinagem.",
   },
@@ -192,8 +190,7 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     numero: "08",
     label: "Veterinário",
     blurb: "Vermífugo, seringa, brinco, sal mineral e item de manejo.",
-    atende: "Ariquemes e região",
-    envio: "Retirada na loja",
+    contexto: "O básico do manejo animal, direto na loja, sem rodar atrás de agropecuária.",
     hasPage: false,
     whatsappMessage: "Olá! Vim pelo site e quero saber sobre itens veterinários.",
   },

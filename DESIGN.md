@@ -71,7 +71,7 @@ Substitui o sistema anterior ("A Engrenagem e a Chapa" — dark-hero, engrenagem
 
 Isso não é enfeite: é o argumento de venda (precisão, qualidade, estoque de verdade) transformado em layout, e diferencia a Líder de todo concorrente da região que ainda usa banner azul com preço em amarelo.
 
-A segunda camada, herdada e mantida do sistema anterior, continua valendo: a loja não vende categorias, vende para **frentes de trabalho** (garimpo, roça, obra, oficina, rio, pesca, veterinário, abrasivos). A estrutura de informação ("ficha técnica" em mono: `CATEGORIA` / `ATENDE` / `ENVIO`) é a mesma — só o tratamento visual muda, de pesado/industrial para leve/preciso.
+A segunda camada, herdada e mantida do sistema anterior, continua valendo: a loja não vende categorias, vende para **frentes de trabalho** (garimpo, roça, obra, oficina, rio, pesca, veterinário, abrasivos). Cada card descreve o que resolve pro cliente em texto corrido, não em ficha de dados — ver "Descrição de card" na seção 5.
 
 **Key Characteristics:**
 - Fundo **branco por padrão** em toda a página. Uma única seção escura na home inteira — "Garimpo em destaque" — e ela funciona exatamente porque é rara: é a única frente de trabalho que quebra o raio local (envio pra fora de RO).
@@ -133,20 +133,17 @@ Sistema flat por doutrina. Única exceção: sombra difusa e suave (`blur` alto,
 - **Secondary:** transparente, borda `linha-forte` (1px), texto `tinta`; hover assume `vermelho` na borda/texto.
 - **Sobre a seção Garimpo (fundo `tinta`):** botão primário inverte — fundo `branco`, texto `tinta` (nunca fundo `vermelho` nem texto `vermelho`, ver No-Red-On-Dark Rule).
 
-### Ficha Técnica (mantida do sistema anterior, tratamento mais leve)
-```
-CATEGORIA    Garimpo
-ATENDE       RO · MT · AM · PA
-ENVIO        Sim, para todo o Norte
-```
-Rótulo em `tinta-suave` mono uppercase, valor em `tinta` Instrument Sans. Sem borda própria — vive dentro do card da frente de trabalho.
+### Descrição de card (substitui a Ficha Técnica em 2026-07-31)
+A ficha técnica (`CATEGORIA`/`ATENDE`/`ENVIO`) foi removida do card da home — os campos `ATENDE`/`ENVIO` repetiam "Ariquemes e região"/"Retirada na loja" em quase todos os 8 cards sem agregar informação. No lugar, o card mostra a lista de produtos (`blurb`) seguida de uma frase curta de contexto/uso (`contexto`), como texto corrido — uma descrição de verdade, não uma tabela de dados repetida por card.
+
+A informação estratégica de alcance regional do Garimpo (a única frente que quebra o raio local) não virou ficha em todo card — só o card de Garimpo ganha uma linha extra em mono vermelho (`envioRegional`, ex: "Enviamos para RO, MT, AM e PA"), como diferencial pontual. O schema estruturado (`areaServed` no JSON-LD) é independente disso e continua vindo de `NAP`/`REGIONAL_STATES`, não do texto do card.
 
 ### Cards (frente de trabalho)
 - **Background:** `branco-frio`.
-- **Border:** `linha` (1px); card de Garimpo recebe `vermelho` (1px) — único card com destaque de cor, os outros 7 usam `linha` padrão.
+- **Border:** `linha` (1px) em todos os 8 cards, sem exceção — nenhum card tem estado "ativo" fixo. O vermelho na borda só aparece em `:hover` (`group-hover:border-brand`), Garimpo incluso.
 - **Shadow:** nenhuma.
 - **Corner radius:** `rounded.sm` (8px) — nunca acima de `rounded.md` (12px).
-- **Hover:** só troca de cor de borda (para `linha-forte` ou `vermelho` se já em destaque). Sem levantar, sem escalar, sem sombra crescendo.
+- **Hover:** só troca de cor de borda (`linha` → `vermelho`). Sem levantar, sem escalar, sem sombra crescendo.
 - **Ícone:** traço técnico 1.5px, sem preenchimento, sem fundo colorido.
 
 ### Elemento Assinatura — Anotação Técnica
@@ -196,3 +193,4 @@ Ambos **claros** — não herdam o padrão dark do sistema anterior. Header: fun
 | 2026-07-28 | Header e Footer passam a ser claros (eram dark no sistema anterior) | O novo brief só reserva fundo escuro pra seção Garimpo; manter Header/Footer dark quebraria a regra "uma seção escura na página inteira" |
 | 2026-07-28 | Criação do token `linha-forte` (#94949B), não presente no brief original | `linha` (#E3E3E6) mede 1.28:1 contra branco — bonito como divisor decorativo, mas o próprio brief exige "contraste mínimo AA" e WCAG SC 1.4.11 pede 3:1 pra fronteira de componente interativo. Calculado pra bater ~3:1, evita introduzir uma cor fora da paleta pra resolver isso |
 | 2026-07-28 | Ficha técnica (mono, `CATEGORIA`/`ATENDE`/`ENVIO`) mantida do sistema anterior | Estrutura de informação já validada pelo usuário nos dois briefs — o que muda é só o peso visual (borda pesada → sem borda própria, vive dentro do card) |
+| 2026-07-31 | Ficha técnica removida do card da home; substituída por descrição corrida (`blurb` + `contexto`) + linha `envioRegional` só no card de Garimpo. Borda vermelha vira hover-only em todos os 8 cards, nenhum estado "ativo" fixo | `ATENDE`/`ENVIO` repetiam o mesmo valor em quase todo card sem ajudar o usuário a decidir; borda fixa no Garimpo lia como bug de estado "selecionado" grudado |
