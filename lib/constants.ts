@@ -4,8 +4,13 @@
  */
 export const NAP = {
   name: "Líder Máquinas e Ferramentas",
+  /** Endereço completo (com número) confirmado 2026-07-31 via
+   * https://share.google/1eRj0u6hM22jcub4d — o Google Meu Negócio real da
+   * loja. Antes o número "3395" tinha sido removido do copy de FAQ das
+   * páginas de categoria por vir sem confirmação e com bairro errado
+   * ("Setor 1", não "Áreas Especiais 01") — este é o dado oficial agora. */
   address: {
-    street: "Av. Cap. Silvio, Áreas Especiais 01",
+    street: "Av. Cap. Silvio, 3395 - Áreas Especiais 01",
     locality: "Ariquemes",
     region: "RO",
     postalCode: "76870-020",
@@ -13,7 +18,12 @@ export const NAP = {
   },
   /** Coordenadas do pin real do Google Meu Negócio (confirmado 2026-07-29 via
    * https://maps.app.goo.gl/bAGy35TvZpj8W4N47) — substitui a estimativa
-   * anterior, que estava a ~1km de distância do local real. */
+   * anterior, que estava a ~1km de distância do local real. A releitura de
+   * 2026-07-31 (mesmo Knowledge Graph ID /g/11tws81d98) mostrou o viewport do
+   * mapa a ~30m de distância (@-9.9207138,-63.0351658), mas isso é só o
+   * centro de exibição do mapa no momento da consulta, não o pin da loja —
+   * mantido o par de coordenadas do marcador preciso (`!3d`/`!4d`) da
+   * consulta anterior. */
   geo: {
     latitude: -9.9204513,
     longitude: -63.0359876,
