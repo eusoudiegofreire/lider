@@ -6,6 +6,7 @@ import { GarimpoDestaque } from "@/components/sections/GarimpoDestaque";
 import { Hero } from "@/components/sections/Hero";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { PorQueComprar } from "@/components/sections/PorQueComprar";
+import { QuemSomos } from "@/components/sections/QuemSomos";
 import { getHardwareStoreSchema } from "@/lib/schema";
 
 /**
@@ -41,6 +42,7 @@ export default function Home() {
       <FrentesDeTrabalho />
       <GarimpoDestaque />
       <PorQueComprar />
+      <QuemSomos />
       <LocationSection />
       <ContactCta />
     </>
