@@ -99,10 +99,10 @@ export const CATEGORIES: Category[] = [
   { slug: "garimpo", label: "Garimpo", areaMode: "regional", phase: 1 },
   { slug: "produtor-rural", label: "Produtor Rural", areaMode: "local", phase: 1 },
   { slug: "ferramentas", label: "Ferramentas e Construção", areaMode: "local", phase: 1 },
-  { slug: "mecanica", label: "Mecânica", areaMode: "local", phase: 2 },
+  { slug: "mecanica", label: "Mecânica", areaMode: "local", phase: 1 },
   { slug: "abrasivos", label: "Abrasivos", areaMode: "local", phase: 2 },
   { slug: "pesca", label: "Pesca", areaMode: "local", phase: 2 },
-  { slug: "jardinagem", label: "Jardinagem", areaMode: "local", phase: 2 },
+  { slug: "jardinagem", label: "Jardinagem", areaMode: "local", phase: 1 },
   { slug: "veterinario", label: "Veterinário", areaMode: "local", phase: 2 },
 ];
 
@@ -165,7 +165,7 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     label: "Mecânica",
     blurb: "Chave, macaco, compressor, graxa, filtro e bateria.",
     contexto: "Ferramenta de oficina de verdade, sem precisar inventar solução.",
-    hasPage: false,
+    hasPage: true,
     whatsappMessage: "Olá! Vim pelo site e quero saber sobre itens de mecânica.",
   },
   {
@@ -192,7 +192,7 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     label: "Jardinagem",
     blurb: "Motosserra, aparador, tesoura de poda, mangueira e adubo.",
     contexto: "Pra manter quintal, sítio ou área verde sempre em ordem.",
-    hasPage: false,
+    hasPage: true,
     whatsappMessage: "Olá! Vim pelo site e quero saber sobre jardinagem.",
   },
   {
