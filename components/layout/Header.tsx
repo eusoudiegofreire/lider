@@ -30,6 +30,12 @@ export function Header() {
             </Link>
           ))}
           <Link
+            href="/produtos"
+            className="font-sans text-sm text-muted-foreground transition-colors hover:text-brand"
+          >
+            Produtos
+          </Link>
+          <Link
             href="/blog"
             className="font-sans text-sm text-muted-foreground transition-colors hover:text-brand"
           >

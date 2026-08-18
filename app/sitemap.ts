@@ -20,5 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...categoryRoutes,
+    {
+      url: `${SITE_URL}/produtos`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
   ];
 }

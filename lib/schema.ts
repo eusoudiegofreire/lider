@@ -3,8 +3,10 @@ import {
   NAP,
   OPENING_HOURS,
   REGIONAL_STATES,
+  SITE_URL,
   type AreaServedMode,
 } from "./constants";
+import { getProductImagePath, type Product } from "./products";
 
 type StateAreaServed = { "@type": "State"; name: string };
 
@@ -121,5 +123,38 @@ export function getCategoryServiceSchema({
       address: buildPostalAddress(),
     },
     areaServed: getAreaServed(mode),
+  };
+}
+
+/**
+ * JSON-LD `ItemList` da vitrine de produtos (`/produtos`) — a página em si já
+ * deixa claro no texto que é uma amostra, não o catálogo completo (ver
+ * `lib/products.ts`), e o schema segue a mesma regra: sem `offers`/preço/
+ * disponibilidade inventados. Cada item é um `Product` com só nome, imagem e
+ * a loja como vendedor — dado real, nada fabricado.
+ */
+export function getProductListSchema(products: Product[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Amostra de produtos — ${NAP.name}`,
+    itemListElement: products.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Product",
+        name: product.name,
+        image: `${SITE_URL}${getProductImagePath(product.file)}`,
+        brand: {
+          "@type": "Organization",
+          name: NAP.name,
+        },
+        seller: {
+          "@type": "HardwareStore",
+          name: NAP.name,
+          address: buildPostalAddress(),
+        },
+      },
+    })),
   };
 }
