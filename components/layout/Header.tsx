@@ -36,6 +36,18 @@ export function Header() {
             Produtos
           </Link>
           <Link
+            href="/sobre"
+            className="font-sans text-sm text-muted-foreground transition-colors hover:text-brand"
+          >
+            Sobre
+          </Link>
+          <Link
+            href="/contato"
+            className="font-sans text-sm text-muted-foreground transition-colors hover:text-brand"
+          >
+            Contato
+          </Link>
+          <Link
             href="/blog"
             className="font-sans text-sm text-muted-foreground transition-colors hover:text-brand"
           >

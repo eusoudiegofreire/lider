@@ -4,7 +4,7 @@ import { CategoryCta } from "@/components/sections/category/CategoryCta";
 import { CategoryFaq } from "@/components/sections/category/CategoryFaq";
 import { CategoryHero } from "@/components/sections/category/CategoryHero";
 import { CategoryProductLineup } from "@/components/sections/category/CategoryProductLineup";
-import { NAP } from "@/lib/constants";
+import { NAP, getLocalServedCitiesLine } from "@/lib/constants";
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -23,8 +23,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     question: "A Líder atende oficinas e mecânicos de cidades vizinhas a Ariquemes?",
-    answer:
-      "Sim — a Líder atende Ariquemes e cidades num raio de até 150km, como Rio Crespo, Cujubim, Monte Negro, Buritis, Machadinho e Jaru.",
+    answer: `Sim — a Líder atende Ariquemes e cidades num raio de até 150km, como ${getLocalServedCitiesLine()}.`,
   },
   {
     question: "Vocês têm peça pra qual tipo de veículo?",
@@ -64,7 +63,7 @@ export default function MecanicaPage() {
       <CategoryHero
         badge="Alcance local"
         title="Peças e Ferramentas de Mecânica em Ariquemes"
-        intro="A Líder Máquinas e Ferramentas vende peças, ferramentas e produtos de manutenção pra mecânica em Ariquemes-RO, atendendo quem cuida de veículo, máquina ou equipamento no dia a dia. A loja fica em Ariquemes e atende clientes num raio de até 150km, incluindo Rio Crespo, Cujubim, Monte Negro, Buritis, Machadinho e Jaru."
+        intro={`A Líder Máquinas e Ferramentas vende peças, ferramentas e produtos de manutenção pra mecânica em Ariquemes-RO, atendendo quem cuida de veículo, máquina ou equipamento no dia a dia. A loja fica em Ariquemes e atende clientes num raio de até 150km, incluindo ${getLocalServedCitiesLine()}.`}
       />
 
       <CategoryProductLineup category="mecanica" />

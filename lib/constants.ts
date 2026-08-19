@@ -62,6 +62,32 @@ export function getWhatsappHref(message?: string): string {
 /** @lidermaquinaseferramentas — citado no copy final (seção 5/7), sem confirmação separada em NAP pois é handle público, não dado de contato estruturado. */
 export const INSTAGRAM_HANDLE = "@lidermaquinaseferramentas";
 
+/** Link clicável do Instagram, derivado do handle público (sem o "@"). */
+export function getInstagramHref(): string {
+  return `https://instagram.com/${INSTAGRAM_HANDLE.replace("@", "")}`;
+}
+
+/**
+ * Cidades do raio de atendimento local (~150km de Ariquemes) — mesma lista
+ * já usada nas páginas de categoria locais (garimpo é regional/estados, as
+ * outras são locais/cidades). Centralizado aqui porque estava duplicado como
+ * string solta em 4 arquivos (`app/produtor-rural`, `app/ferramentas`,
+ * `app/mecanica`, `app/jardinagem`) — risco de uma mudança futura corrigir
+ * só uma cópia e deixar as outras desatualizadas.
+ */
+export const LOCAL_SERVED_CITIES = [
+  "Rio Crespo",
+  "Cujubim",
+  "Monte Negro",
+  "Buritis",
+  "Machadinho",
+  "Jaru",
+] as const;
+
+export function getLocalServedCitiesLine(): string {
+  return LOCAL_SERVED_CITIES.join(", ");
+}
+
 /**
  * Faixa mono de horário do Hero (`copy-lider-home.md` §1: "SEG A SEX [X]H ÀS
  * [X]H · SÁB [X]H ÀS [X]H") — preenchida com o horário real já confirmado em

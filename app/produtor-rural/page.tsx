@@ -4,7 +4,7 @@ import { CategoryCta } from "@/components/sections/category/CategoryCta";
 import { CategoryFaq } from "@/components/sections/category/CategoryFaq";
 import { CategoryHero } from "@/components/sections/category/CategoryHero";
 import { ProductLineupPlaceholder } from "@/components/sections/category/ProductLineupPlaceholder";
-import { NAP } from "@/lib/constants";
+import { NAP, getLocalServedCitiesLine } from "@/lib/constants";
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -23,8 +23,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     question: "A Líder atende produtores de cidades vizinhas a Ariquemes?",
-    answer:
-      "Sim — a Líder atende Ariquemes e cidades num raio de até 150km, como Rio Crespo, Cujubim, Monte Negro, Buritis, Machadinho e Jaru.",
+    answer: `Sim — a Líder atende Ariquemes e cidades num raio de até 150km, como ${getLocalServedCitiesLine()}.`,
   },
   {
     question: "Qual roçadeira é mais indicada para propriedade rural pequena?",
@@ -55,7 +54,7 @@ export default function ProdutorRuralPage() {
       <CategoryHero
         badge="Alcance local"
         title="Ferramentas para Produtor Rural em Ariquemes"
-        intro="A Líder Máquinas e Ferramentas atende produtores rurais de Ariquemes e região, com ferramentas e equipamentos para uso na propriedade. A loja está em Ariquemes-RO e atende clientes num raio de até 150km, incluindo Rio Crespo, Cujubim, Monte Negro, Buritis, Machadinho e Jaru."
+        intro={`A Líder Máquinas e Ferramentas atende produtores rurais de Ariquemes e região, com ferramentas e equipamentos para uso na propriedade. A loja está em Ariquemes-RO e atende clientes num raio de até 150km, incluindo ${getLocalServedCitiesLine()}.`}
       />
 
       <ProductLineupPlaceholder />
