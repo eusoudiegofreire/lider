@@ -7,6 +7,8 @@ import {
   type AreaServedMode,
 } from "./constants";
 import { getProductImagePath, type Product } from "./products";
+import { getBlogCategoryLabel } from "./blog/categories";
+import type { BlogPost } from "./blog/types";
 
 type StateAreaServed = { "@type": "State"; name: string };
 
@@ -155,6 +157,61 @@ export function getProductListSchema(products: Product[]) {
           address: buildPostalAddress(),
         },
       },
+    })),
+  };
+}
+
+/**
+ * JSON-LD `BlogPosting` de um artigo (Fase 4, ver `_references/pages/blog.md`
+ * §3: "Schema Article/BlogPosting por post + BreadcrumbList"). `author` e
+ * `publisher` são sempre a loja — não tem autor pessoa física confirmado.
+ */
+export function getBlogPostingSchema(post: BlogPost) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    articleSection: getBlogCategoryLabel(post.category),
+    author: {
+      "@type": "Organization",
+      name: NAP.name,
+    },
+    publisher: {
+      "@type": "HardwareStore",
+      name: NAP.name,
+      address: buildPostalAddress(),
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`,
+    },
+  };
+}
+
+/**
+ * JSON-LD `FAQPage` a partir das seções Q&A de um artigo — cada H2 do post já
+ * é uma pergunta real com resposta direta (`answer`), então vira `FaqItem`
+ * sem transformação: mesma estrutura que as páginas de categoria já usam.
+ */
+export function getBlogPostFaqSchema(post: BlogPost) {
+  return getFaqPageSchema(post.sections.map((section) => ({ question: section.question, answer: section.answer })));
+}
+
+type BreadcrumbItem = { name: string; path: string };
+
+/** JSON-LD `BreadcrumbList` — `path` já inclui a barra inicial (ex: "/blog"). */
+export function getBreadcrumbListSchema(items: BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path}`,
     })),
   };
 }
