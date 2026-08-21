@@ -46,7 +46,7 @@ Site institucional (não é loja virtual/e-commerce) para a Líder Máquinas. O 
 
 O perfil do Instagram da Líder já usa **4 categorias como destaques**: Garimpo, Produtor Rural, Jardinagem e Mecânicas — além de Pesca e Contato. Isso indica que essas já são linhas de produto reconhecidas pelo negócio. Do ponto de vista de SEO, cada categoria de produto forte = uma página própria = uma chance a mais de aparecer no Google para uma busca específica ("ferramentas de jardinagem Ariquemes" tem buscador diferente de "ferramentas para garimpo Ariquemes"). Recomendo:
 
-5. **Mecânica** — ferramentas automotivas/oficina
+5. **Mecânica** — **[CORRIGIDO 2026-08-21, confirmado por áudio do cliente — ver `content/blog/mecanica-ariquemes.ts`]** não é venda de peça automotiva/oficina. É **assistência técnica (conserto)** de motores 2 tempos (roçadeira, motosserra, atomizador) e de ferramenta elétrica de trabalho (esmerilhadeira, furadeira, serra circular, lavadora de alta pressão). Não atende eletrodoméstico comum (ventilador, airfryer etc.). A suposição original deste briefing ("ferramentas automotivas/oficina") estava errada e chegou a ser publicada em `app/mecanica/page.tsx` antes da correção — mantida aqui riscada só como registro histórico do erro, não como orientação.
 6. **Jardinagem** — se o volume de produtos justificar
 
 Se preferir começar enxuto, dá para lançar as 4 páginas originais primeiro e adicionar Mecânica/Jardinagem numa segunda fase — o site não precisa nascer completo.
