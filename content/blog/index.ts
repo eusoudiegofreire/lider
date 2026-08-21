@@ -1,4 +1,9 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { equipamentoGarimpoAriquemes } from "./equipamento-garimpo-ariquemes";
+import { ferramentaProdutorRuralAriquemes } from "./ferramenta-produtor-rural-ariquemes";
+import { ferramentasConstrucaoAriquemes } from "./ferramentas-construcao-ariquemes";
+import { jardinagemAriquemes } from "./jardinagem-ariquemes";
+import { mecanicaAriquemes } from "./mecanica-ariquemes";
 import { rocadeiraEletricaOuAGasolina } from "./rocadeira-eletrica-ou-a-gasolina";
 
 /**
@@ -8,7 +13,14 @@ import { rocadeiraEletricaOuAGasolina } from "./rocadeira-eletrica-ou-a-gasolina
  * `generateStaticParams` de `/blog/[slug]`, o sitemap e a listagem pegam o
  * post automaticamente, sem precisar tocar em outro arquivo.
  */
-export const BLOG_POSTS: BlogPost[] = [rocadeiraEletricaOuAGasolina];
+export const BLOG_POSTS: BlogPost[] = [
+  rocadeiraEletricaOuAGasolina,
+  equipamentoGarimpoAriquemes,
+  ferramentaProdutorRuralAriquemes,
+  ferramentasConstrucaoAriquemes,
+  mecanicaAriquemes,
+  jardinagemAriquemes,
+];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((post) => post.slug === slug);

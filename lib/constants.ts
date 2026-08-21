@@ -189,10 +189,14 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     slug: "mecanica",
     numero: "04",
     label: "Mecânica",
-    blurb: "Chave, macaco, compressor, graxa, filtro e bateria.",
-    contexto: "Ferramenta de oficina de verdade, sem precisar inventar solução.",
+    /* Corrigido 2026-08-21: "Mecânica" aqui é assistência técnica de motor 2
+     * tempos e ferramenta elétrica de trabalho — não venda de peça
+     * automotiva/bateria de carro (ver content/blog/mecanica-ariquemes.ts,
+     * fonte de verdade confirmada com o cliente). */
+    blurb: "Assistência técnica de motosserra, roçadeira e ferramenta elétrica de trabalho.",
+    contexto: "Leva pra avaliar antes de comprar outra.",
     hasPage: true,
-    whatsappMessage: "Olá! Vim pelo site e quero saber sobre itens de mecânica.",
+    whatsappMessage: "Olá! Vim pelo site e quero avaliar o conserto de uma ferramenta/máquina.",
   },
   {
     slug: "abrasivos",

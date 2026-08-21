@@ -4,9 +4,14 @@ import { NAP, getWhatsappHref } from "@/lib/constants";
 type CategoryCtaProps = {
   title?: string;
   message: string;
+  whatsappMessage?: string;
 };
 
-export function CategoryCta({ title = "Venha conferir pessoalmente", message }: CategoryCtaProps) {
+export function CategoryCta({
+  title = "Venha conferir pessoalmente",
+  message,
+  whatsappMessage = "Olá! Vim pelo site da Líder Máquinas.",
+}: CategoryCtaProps) {
   return (
     <section className="section-dark border-t border-border bg-background py-16">
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 md:flex-row md:items-center md:justify-between">
@@ -23,7 +28,7 @@ export function CategoryCta({ title = "Venha conferir pessoalmente", message }: 
           </p>
         </div>
 
-        <Button href={getWhatsappHref("Olá! Vim pelo site da Líder Máquinas.")} size="lg">
+        <Button href={getWhatsappHref(whatsappMessage)} size="lg">
           Falar no WhatsApp
         </Button>
       </div>
