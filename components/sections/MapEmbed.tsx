@@ -36,7 +36,8 @@ export function MapEmbed({ src, title }: MapEmbedProps) {
       title={title}
       className="h-full w-full border-0"
       loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
     />
   );
 }

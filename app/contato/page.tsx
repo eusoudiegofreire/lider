@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/sections/contato/ContactForm";
 import { MapEmbed } from "@/components/sections/MapEmbed";
 import {
+  GOOGLE_MAPS_EMBED_URL,
   INSTAGRAM_HANDLE,
   NAP,
   getDirectionsHref,
@@ -24,10 +25,6 @@ export const metadata: Metadata = {
 
 export default function ContatoPage() {
   const schema = getHardwareStoreSchema();
-  const addressQuery = encodeURIComponent(
-    `${NAP.address.street}, ${NAP.address.locality} - ${NAP.address.region}, ${NAP.address.postalCode}`,
-  );
-  const mapSrc = `https://www.google.com/maps?q=${addressQuery}&output=embed`;
 
   return (
     <>
@@ -120,7 +117,7 @@ export default function ContatoPage() {
             </div>
 
             <div className="mt-6 aspect-video overflow-hidden rounded-lg border border-divider">
-              <MapEmbed src={mapSrc} title={`Mapa - ${NAP.name}`} />
+              <MapEmbed src={GOOGLE_MAPS_EMBED_URL} title={`Mapa - ${NAP.name}`} />
             </div>
           </div>
         </div>

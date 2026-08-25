@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MapEmbed } from "./MapEmbed";
-import { INSTAGRAM_HANDLE, NAP, getDirectionsHref } from "@/lib/constants";
+import { GOOGLE_MAPS_EMBED_URL, INSTAGRAM_HANDLE, NAP, getDirectionsHref } from "@/lib/constants";
 
 /**
  * "A loja" (`copy-lider-home.md` §5, texto exato — endereço/horário/telefone
@@ -10,11 +10,6 @@ import { INSTAGRAM_HANDLE, NAP, getDirectionsHref } from "@/lib/constants";
  * mesmo padrão de placeholder tracejado já usado no site antes desta sessão.
  */
 export function LocationSection() {
-  const addressQuery = encodeURIComponent(
-    `${NAP.address.street}, ${NAP.address.locality} - ${NAP.address.region}, ${NAP.address.postalCode}`,
-  );
-  const mapSrc = `https://www.google.com/maps?q=${addressQuery}&output=embed`;
-
   return (
     <section id="a-loja" className="mx-auto max-w-6xl px-6 py-[72px] md:py-[120px]">
       <SectionHeading eyebrow="Onde estamos" title="Passa aqui na loja." />
@@ -69,7 +64,7 @@ export function LocationSection() {
         </div>
 
         <div className="aspect-video overflow-hidden rounded-lg border border-divider">
-          <MapEmbed src={mapSrc} title={`Mapa - ${NAP.name}`} />
+          <MapEmbed src={GOOGLE_MAPS_EMBED_URL} title={`Mapa - ${NAP.name}`} />
         </div>
       </div>
     </section>

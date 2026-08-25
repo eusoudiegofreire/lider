@@ -68,6 +68,19 @@ export function getInstagramHref(): string {
 }
 
 /**
+ * Embed oficial do Google Maps pro ponto "Líder Máquinas" (gerado via
+ * Google Maps → Compartilhar → Incorporar um mapa, 2026-08-22) — usado por
+ * `MapEmbed` em toda página com seção de localização (Home, `/sobre`,
+ * `/contato`). Fonte única: antes cada página montava seu próprio
+ * `google.com/maps?q=<endereço>&output=embed` (busca por texto, menos
+ * preciso que o embed do place real). Não editar o `pb=` na mão — se o
+ * ponto mudar, gerar um novo embed no Google Maps e substituir a URL
+ * inteira aqui.
+ */
+export const GOOGLE_MAPS_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.8107205163747!2d-63.0351177!3d-9.920746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93cc919e29c38e2d%3A0x10c6e73cacdc1b71!2zTMOtZGVyIE3DoXF1aW5hcw!5e1!3m2!1spt-BR!2sbr!4v1787671774516!5m2!1spt-BR!2sbr";
+
+/**
  * Cidades do raio de atendimento local (~150km de Ariquemes) — mesma lista
  * já usada nas páginas de categoria locais (garimpo é regional/estados, as
  * outras são locais/cidades). Centralizado aqui porque estava duplicado como
