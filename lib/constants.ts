@@ -163,7 +163,11 @@ export const FRENTES_DE_TRABALHO: FrenteDeTrabalho[] = [
     label: "Garimpo",
     blurb: "Bomba, mangueira, peneira, motor, correia e peça de reposição.",
     contexto: "Pra manter o garimpo rodando sem perder dia de trabalho.",
-    envioRegional: "Enviamos para RO, MT, AM e PA",
+    /* Corrigido 2026-08-22: era "RO, MT, AM e PA" (Pará), nunca confirmado
+     * em lugar nenhum — todo documento de referência (briefing, garimpo.md,
+     * 01_PONTOS_EM_ABERTO.md) e o schema (REGIONAL_STATES) confirmam RO, AM,
+     * AC (Acre) e MT, o mesmo alcance já publicado em /garimpo. */
+    envioRegional: "Enviamos para RO, AM, AC e MT",
     hasPage: true,
     whatsappMessage: "Olá! Vim pelo site e quero orçamento de equipamento de garimpo.",
   },

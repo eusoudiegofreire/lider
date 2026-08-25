@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { ContactCta } from "@/components/sections/ContactCta";
 import { FrentesDeTrabalho } from "@/components/sections/FrentesDeTrabalho";
-import { GarimpoDestaque } from "@/components/sections/GarimpoDestaque";
 import { Hero } from "@/components/sections/Hero";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { PorQueComprar } from "@/components/sections/PorQueComprar";
@@ -40,7 +39,6 @@ export default function Home() {
       />
       <Hero />
       <FrentesDeTrabalho />
-      <GarimpoDestaque />
       <PorQueComprar />
       <QuemSomos />
       <LocationSection />
