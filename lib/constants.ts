@@ -260,12 +260,15 @@ export const REGIONAL_STATES = ["Rondônia", "Amazonas", "Acre", "Mato Grosso"] 
 export const LOCAL_GEO_RADIUS_METERS = 150_000;
 
 /**
- * URL base do site — domínio próprio confirmado 2026-08-23 (sem `www`, que
- * redireciona pra essa versão na Vercel). `NEXT_PUBLIC_SITE_URL` está
- * configurada em produção (Vercel) e em `.env.local` (dev); este valor é só
- * o fallback pra qualquer ambiente onde a env var não estiver setada — não
- * deve mais ser o `.vercel.app` (isso já causou canonical/sitemap/schema
- * apontando pro domínio errado antes de a env var existir, ver auditoria
- * 2026-08-23).
+ * URL base do site — domínio próprio confirmado 2026-08-23. Com `www`: a
+ * configuração real na Vercel (verificada 2026-09-03, testada 3x em produção)
+ * é o apex (`lidermaquinaseferramentas.com.br`, sem www) devolvendo 308 pro
+ * `www` — o inverso do que se assumiu inicialmente. Usar sempre a versão que
+ * serve 200 direto, não a que redireciona, senão canonical/sitemap apontam
+ * pra uma URL com um pulo a mais. `NEXT_PUBLIC_SITE_URL` está configurada em
+ * produção (Vercel) e em `.env.local` (dev); este valor é só o fallback pra
+ * qualquer ambiente onde a env var não estiver setada — não deve mais ser o
+ * `.vercel.app` (isso já causou canonical/sitemap/schema apontando pro
+ * domínio errado antes de a env var existir, ver auditoria 2026-08-23).
  */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lidermaquinaseferramentas.com.br";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lidermaquinaseferramentas.com.br";
