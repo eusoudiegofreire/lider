@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
+      url: `/blog/${post.slug}`,
     },
   };
 }

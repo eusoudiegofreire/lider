@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/produtor-rural",
   },
+  openGraph: {
+    url: "/produtor-rural",
+  },
 };
 
 const FAQ_ITEMS: FaqItem[] = [

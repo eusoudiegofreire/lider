@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/jardinagem",
   },
+  openGraph: {
+    url: "/jardinagem",
+  },
 };
 
 const FAQ_ITEMS: FaqItem[] = [

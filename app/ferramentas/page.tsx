@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/ferramentas",
   },
+  openGraph: {
+    url: "/ferramentas",
+  },
 };
 
 const FAQ_ITEMS: FaqItem[] = [

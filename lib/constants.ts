@@ -260,8 +260,12 @@ export const REGIONAL_STATES = ["Rondônia", "Amazonas", "Acre", "Mato Grosso"] 
 export const LOCAL_GEO_RADIUS_METERS = 150_000;
 
 /**
- * URL base do site — usa a URL de deploy da Vercel até o domínio definitivo
- * ser confirmado (ver `_references/pages/01_PONTOS_EM_ABERTO.md`). Ajustar aqui
- * quando o domínio real for definido.
+ * URL base do site — domínio próprio confirmado 2026-08-23 (sem `www`, que
+ * redireciona pra essa versão na Vercel). `NEXT_PUBLIC_SITE_URL` está
+ * configurada em produção (Vercel) e em `.env.local` (dev); este valor é só
+ * o fallback pra qualquer ambiente onde a env var não estiver setada — não
+ * deve mais ser o `.vercel.app` (isso já causou canonical/sitemap/schema
+ * apontando pro domínio errado antes de a env var existir, ver auditoria
+ * 2026-08-23).
  */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lider-maquinas.vercel.app";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lidermaquinaseferramentas.com.br";

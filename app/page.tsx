@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Líder Máquinas Ferragens e Abrasivos — Ariquemes, RO",
     description: "Da roça ao garimpo, da obra ao rio. Tudo para quem trabalha pesado em Rondônia.",
+    url: "/",
   },
   alternates: {
     canonical: "/",

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/garimpo",
   },
+  openGraph: {
+    url: "/garimpo",
+  },
 };
 
 const FAQ_ITEMS: FaqItem[] = [

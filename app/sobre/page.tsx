@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/sobre",
   },
+  openGraph: {
+    url: "/sobre",
+  },
 };
 
 /**

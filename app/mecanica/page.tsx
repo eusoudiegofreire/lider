@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/mecanica",
   },
+  openGraph: {
+    url: "/mecanica",
+  },
 };
 
 /**

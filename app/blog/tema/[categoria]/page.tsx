@@ -30,6 +30,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/blog/tema/${categoria}`,
     },
+    openGraph: {
+      url: `/blog/tema/${categoria}`,
+    },
   };
 }
 
