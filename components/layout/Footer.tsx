@@ -84,7 +84,10 @@ export function Footer() {
 
       <div className="border-t border-divider px-6 py-4 text-center text-xs text-muted-foreground">
         {NAP.address.street} · {NAP.address.locality}/{NAP.address.region}
-        <br />© {new Date().getFullYear()} {NAP.name}
+        <br />© {new Date().getFullYear()} {NAP.name} ·{" "}
+        <Link href="/privacidade" className="underline-offset-2 transition-colors hover:text-brand hover:underline">
+          Política de Privacidade
+        </Link>
       </div>
     </footer>
   );
