@@ -4,7 +4,7 @@ import { CategoryCta } from "@/components/sections/category/CategoryCta";
 import { CategoryFaq } from "@/components/sections/category/CategoryFaq";
 import { CategoryHero } from "@/components/sections/category/CategoryHero";
 import { ProductLineupPlaceholder } from "@/components/sections/category/ProductLineupPlaceholder";
-import { NAP, getLocalServedCitiesLine } from "@/lib/constants";
+import { BASE_OPEN_GRAPH, NAP, getLocalServedCitiesLine } from "@/lib/constants";
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     canonical: "/produtor-rural",
   },
   openGraph: {
+    ...BASE_OPEN_GRAPH,
     url: "/produtor-rural",
   },
 };

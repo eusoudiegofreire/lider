@@ -272,3 +272,44 @@ export const LOCAL_GEO_RADIUS_METERS = 150_000;
  * domínio errado antes de a env var existir, ver auditoria 2026-08-23).
  */
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lidermaquinaseferramentas.com.br";
+
+/**
+ * URL absoluta da imagem de Open Graph/Twitter (`public/og-image.jpg`,
+ * 1200x630, logo real sobre fundo bordô da marca — gerada 2026-09-04).
+ * Precisa ser absoluta: ao contrário de `alternates.canonical`/`openGraph.url`,
+ * o Next NÃO resolve `openGraph.images`/`twitter.images` relativos contra
+ * `metadataBase`.
+ */
+export const OG_IMAGE_URL = `${SITE_URL}/og-image.jpg`;
+
+/**
+ * Bloco de Open Graph compartilhado entre TODAS as páginas. Existe porque o
+ * Next faz merge RASO (shallow) de metadata entre segmentos — confirmado em
+ * `node_modules/next/dist/docs/.../generate-metadata.md` §Merging, não pela
+ * memória de treino (ver aviso em `AGENTS.md`): quando uma página exporta seu
+ * próprio `openGraph: { ... }`, o objeto inteiro do layout raiz é
+ * SUBSTITUÍDO, campo por campo NÃO mesclado. Sem isto centralizado, as 12
+ * páginas que já definem `openGraph.url` apagariam silenciosamente `images`
+ * (e `type`/`locale`/`siteName`) do card ao compartilhar. Toda página com seu
+ * próprio bloco `openGraph` deve espalhar isto primeiro:
+ * `openGraph: { ...BASE_OPEN_GRAPH, url: "/rota" }`.
+ */
+export const BASE_OPEN_GRAPH = {
+  type: "website" as const,
+  locale: "pt_BR",
+  siteName: NAP.name,
+  images: [
+    {
+      url: OG_IMAGE_URL,
+      width: 1200,
+      height: 630,
+      alt: `${NAP.name} — Ferragens, ferramentas e máquinas em Ariquemes-RO`,
+    },
+  ],
+};
+
+/** Twitter Card compartilhado — mesma imagem do Open Graph. Nenhuma página define `twitter` própria hoje, então isto nunca é sobrescrito, mas fica centralizado por consistência com `BASE_OPEN_GRAPH`. */
+export const TWITTER_CARD = {
+  card: "summary_large_image" as const,
+  images: [OG_IMAGE_URL],
+};

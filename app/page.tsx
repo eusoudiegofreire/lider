@@ -6,6 +6,7 @@ import { Hero } from "@/components/sections/Hero";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { PorQueComprar } from "@/components/sections/PorQueComprar";
 import { QuemSomos } from "@/components/sections/QuemSomos";
+import { BASE_OPEN_GRAPH } from "@/lib/constants";
 import { getHardwareStoreSchema } from "@/lib/schema";
 
 /**
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
   description:
     "Ferragens, abrasivos, ferramentas e máquinas em Ariquemes, Rondônia. Garimpo, agro, obra, mecânica e pesca. Loja física com estoque e envio para o Norte.",
   openGraph: {
+    ...BASE_OPEN_GRAPH,
     title: "Líder Máquinas Ferragens e Abrasivos — Ariquemes, RO",
     description: "Da roça ao garimpo, da obra ao rio. Tudo para quem trabalha pesado em Rondônia.",
     url: "/",

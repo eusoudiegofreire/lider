@@ -4,7 +4,7 @@ import { Instrument_Sans, Geist_Mono } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloatingButton } from "@/components/layout/WhatsAppFloatingButton";
-import { NAP, SITE_URL } from "@/lib/constants";
+import { BASE_OPEN_GRAPH, NAP, SITE_URL, TWITTER_CARD } from "@/lib/constants";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -21,6 +21,17 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+/**
+ * Imagem de Open Graph/Twitter — gerada estaticamente (não via
+ * `app/opengraph-image.tsx`/`ImageResponse`) pra manter controle explícito
+ * sobre a URL absoluta (via `SITE_URL`) e o card final, ver auditoria de
+ * qualidade 2026-09-04. Logo real (`public/logo sem fundo.png`) sobre fundo
+ * bordô da marca, 1200x630 (tamanho padrão recomendado por
+ * Facebook/WhatsApp/LinkedIn). `BASE_OPEN_GRAPH`/`TWITTER_CARD` ficam
+ * centralizados em `lib/constants.ts` — toda página com seu próprio bloco
+ * `openGraph` precisa espalhar `...BASE_OPEN_GRAPH` (ver comentário lá, é o
+ * merge raso do Next entre segmentos).
+ */
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -29,11 +40,10 @@ export const metadata: Metadata = {
   },
   description: `Site institucional da ${NAP.name} em ${NAP.address.locality} - ${NAP.address.region}.`,
   openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    siteName: NAP.name,
+    ...BASE_OPEN_GRAPH,
     url: SITE_URL,
   },
+  twitter: TWITTER_CARD,
   robots: {
     index: true,
     follow: true,

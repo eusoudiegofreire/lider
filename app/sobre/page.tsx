@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MapEmbed } from "@/components/sections/MapEmbed";
 import {
+  BASE_OPEN_GRAPH,
   GOOGLE_MAPS_EMBED_URL,
   INSTAGRAM_HANDLE,
   NAP,
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
     canonical: "/sobre",
   },
   openGraph: {
+    ...BASE_OPEN_GRAPH,
     url: "/sobre",
   },
 };

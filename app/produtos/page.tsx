@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/Button";
 import { ProductCategorySection } from "@/components/sections/produtos/ProductCategorySection";
-import { getWhatsappHref } from "@/lib/constants";
+import { BASE_OPEN_GRAPH, getWhatsappHref } from "@/lib/constants";
 import { PRODUCTS, PRODUCT_CATEGORY_ORDER } from "@/lib/products";
 import { getProductListSchema } from "@/lib/schema";
 
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     canonical: "/produtos",
   },
   openGraph: {
+    ...BASE_OPEN_GRAPH,
     url: "/produtos",
   },
 };

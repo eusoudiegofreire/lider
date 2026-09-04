@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/sections/contato/ContactForm";
 import { MapEmbed } from "@/components/sections/MapEmbed";
 import {
+  BASE_OPEN_GRAPH,
   GOOGLE_MAPS_EMBED_URL,
   INSTAGRAM_HANDLE,
   NAP,
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
     canonical: "/contato",
   },
   openGraph: {
+    ...BASE_OPEN_GRAPH,
     url: "/contato",
   },
 };

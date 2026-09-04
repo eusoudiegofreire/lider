@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { BlogListing } from "@/components/sections/blog/BlogListing";
 import { getAllBlogPostsSorted } from "@/content/blog";
+import { BASE_OPEN_GRAPH } from "@/lib/constants";
 import { getBreadcrumbListSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     canonical: "/blog",
   },
   openGraph: {
+    ...BASE_OPEN_GRAPH,
     url: "/blog",
   },
 };

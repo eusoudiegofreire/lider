@@ -5,6 +5,7 @@ import { BlogListing } from "@/components/sections/blog/BlogListing";
 import { BLOG_CATEGORIES, getBlogCategoryLabel } from "@/lib/blog/categories";
 import type { BlogCategorySlug } from "@/lib/blog/types";
 import { getBlogPostsByCategory } from "@/content/blog";
+import { BASE_OPEN_GRAPH } from "@/lib/constants";
 import { getBreadcrumbListSchema } from "@/lib/schema";
 
 type PageProps = {
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/blog/tema/${categoria}`,
     },
     openGraph: {
+      ...BASE_OPEN_GRAPH,
       url: `/blog/tema/${categoria}`,
     },
   };

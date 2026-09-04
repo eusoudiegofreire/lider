@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { BlogPostBody } from "@/components/sections/blog/BlogPostBody";
 import { getBlogCategoryLabel } from "@/lib/blog/categories";
 import { BLOG_POSTS, getBlogPostBySlug } from "@/content/blog";
+import { BASE_OPEN_GRAPH } from "@/lib/constants";
 import { getBlogPostFaqSchema, getBlogPostingSchema, getBreadcrumbListSchema } from "@/lib/schema";
 
 type PageProps = {
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/blog/${post.slug}`,
     },
     openGraph: {
+      ...BASE_OPEN_GRAPH,
       title: post.title,
       description: post.excerpt,
       type: "article",
