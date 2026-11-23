@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { CategoryCta } from "@/components/sections/category/CategoryCta";
 import { CategoryFaq } from "@/components/sections/category/CategoryFaq";
 import { CategoryHero } from "@/components/sections/category/CategoryHero";
-import { ProductLineupPlaceholder } from "@/components/sections/category/ProductLineupPlaceholder";
+import { CategoryProductLineup } from "@/components/sections/category/CategoryProductLineup";
 import { BASE_OPEN_GRAPH } from "@/lib/constants";
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
@@ -68,7 +68,7 @@ export default function GarimpoPage() {
         intro="A Líder Máquinas e Ferramentas vende equipamentos para garimpo, atendendo Rondônia e as regiões de garimpo do Amazonas, Acre e Mato Grosso. A loja fica em Ariquemes-RO, com atendimento também por WhatsApp."
       />
 
-      <ProductLineupPlaceholder />
+      <CategoryProductLineup category="garimpo" />
 
       <CategoryFaq items={FAQ_ITEMS} />
 

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { CategoryCta } from "@/components/sections/category/CategoryCta";
 import { CategoryFaq } from "@/components/sections/category/CategoryFaq";
 import { CategoryHero } from "@/components/sections/category/CategoryHero";
-import { ProductLineupPlaceholder } from "@/components/sections/category/ProductLineupPlaceholder";
+import { CategoryProductLineup } from "@/components/sections/category/CategoryProductLineup";
 import { BASE_OPEN_GRAPH, NAP, getLocalServedCitiesLine } from "@/lib/constants";
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
@@ -61,7 +61,7 @@ export default function ProdutorRuralPage() {
         intro={`A Líder Máquinas e Ferramentas atende produtores rurais de Ariquemes e região, com ferramentas e equipamentos para uso na propriedade. A loja está em Ariquemes-RO e atende clientes num raio de até 150km, incluindo ${getLocalServedCitiesLine()}.`}
       />
 
-      <ProductLineupPlaceholder />
+      <CategoryProductLineup category="produtor-rural" />
 
       <CategoryFaq items={FAQ_ITEMS} />
 

@@ -128,6 +128,21 @@ export const PRODUCTS: Product[] = [
     name: "Luminária Portátil",
     category: "ferramentas",
   },
+  {
+    file: "gerador-toyama-tg15000cxe3-xp-fundo-branco-lider-maquinas-ariquemes.jpg",
+    name: "Gerador Toyama TG15000CXE3-XP",
+    category: "ferramentas",
+  },
+  {
+    file: "maquina-de-solda-balmer-vulcano-ind-4000-fundo-branco-lider-maquinas-ariquemes.jpg",
+    name: "Máquina de Solda Balmer Vulcano IND 4000",
+    category: "ferramentas",
+  },
+  {
+    file: "caixa-de-ferramentas-tramontina-5-gavetas-fundo-branco-lider-maquinas-ariquemes.jpg",
+    name: "Caixa de Ferramentas Tramontina 5 Gavetas",
+    category: "ferramentas",
+  },
 
   // Mecânica
   {
