@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const label = getBlogCategoryLabel(categoria);
   return {
-    title: `Blog — ${label}`,
+    title: `${label}: Dicas e Guias em Ariquemes`,
     description: `Guias e comparativos sobre ${label.toLowerCase()} — conteúdo direto ao ponto da Líder Máquinas e Ferramentas, em Ariquemes-RO.`,
     alternates: {
       canonical: `/blog/tema/${categoria}`,

@@ -9,6 +9,7 @@ import type { BlogPost } from "@/lib/blog/types";
 export const rocadeiraEletricaOuAGasolina: BlogPost = {
   slug: "rocadeira-eletrica-ou-a-gasolina",
   title: "Roçadeira Elétrica ou a Gasolina: Qual Vale Mais a Pena?",
+  seoTitle: "Roçadeira Elétrica ou a Gasolina: Qual Escolher?",
   category: "jardinagem",
   date: "2026-08-18",
   excerpt:

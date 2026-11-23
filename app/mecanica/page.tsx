@@ -8,9 +8,9 @@ import { BASE_OPEN_GRAPH, NAP, getLocalServedCitiesLine } from "@/lib/constants"
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Assistência Técnica em Ariquemes - RO",
+  title: "Conserto de Motosserra e Roçadeira em Ariquemes",
   description:
-    "Assistência técnica de motosserra, roçadeira, atomizador e ferramenta elétrica de trabalho na Líder Máquinas e Ferramentas, em Ariquemes-RO. Loja física e atendimento pelo WhatsApp.",
+    "Conserto e assistência técnica de motosserra, roçadeira, atomizador e ferramenta elétrica em Ariquemes-RO. Loja física da Líder e atendimento pelo WhatsApp.",
   alternates: {
     canonical: "/mecanica",
   },

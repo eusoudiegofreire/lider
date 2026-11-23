@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MapEmbed } from "./MapEmbed";
-import { GOOGLE_MAPS_EMBED_URL, INSTAGRAM_HANDLE, NAP, getDirectionsHref } from "@/lib/constants";
+import { GOOGLE_MAPS_EMBED_URL, INSTAGRAM_HANDLE, NAP, getDirectionsHref, getPhoneHref } from "@/lib/constants";
 
 /**
  * "A loja" (`copy-lider-home.md` §5, texto exato — endereço/horário/telefone
@@ -42,7 +42,11 @@ export function LocationSection() {
               <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
                 Telefone
               </dt>
-              <dd className="mt-1 text-foreground">{NAP.phone}</dd>
+              <dd className="mt-1 text-foreground">
+                <a href={getPhoneHref()} className="hover:text-brand">
+                  {NAP.phone}
+                </a>
+              </dd>
             </div>
             <div>
               <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">

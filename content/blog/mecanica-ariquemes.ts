@@ -11,6 +11,7 @@ import type { BlogPost } from "@/lib/blog/types";
 export const mecanicaAriquemes: BlogPost = {
   slug: "conserto-ferramenta-motosserra-rocadeira-ariquemes",
   title: "Onde Consertar Motosserra, Roçadeira e Ferramenta Elétrica em Ariquemes?",
+  seoTitle: "Conserto de Motosserra e Roçadeira em Ariquemes",
   category: "mecanica",
   date: "2026-08-20",
   excerpt:

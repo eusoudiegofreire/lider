@@ -8,6 +8,7 @@ import type { BlogPost } from "@/lib/blog/types";
 export const jardinagemAriquemes: BlogPost = {
   slug: "onde-comprar-motosserra-jardinagem-ariquemes",
   title: "Onde Comprar Motosserra e Equipamento de Jardinagem em Ariquemes?",
+  seoTitle: "Motosserra e Jardinagem em Ariquemes: Onde Comprar",
   category: "jardinagem",
   date: "2026-08-20",
   excerpt:

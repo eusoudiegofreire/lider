@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/Button";
-import { CATEGORIES, NAP, getWhatsappHref } from "@/lib/constants";
+import { CATEGORIES, NAP, getPhoneHref, getWhatsappHref } from "@/lib/constants";
 
 export function Header() {
   return (
@@ -55,9 +55,17 @@ export function Header() {
           </Link>
         </nav>
 
-        <Button href={getWhatsappHref()} size="sm">
-          WhatsApp
-        </Button>
+        <div className="flex items-center gap-4">
+          <a
+            href={getPhoneHref()}
+            className="hidden font-mono text-sm text-muted-foreground transition-colors hover:text-brand lg:inline"
+          >
+            {NAP.phone}
+          </a>
+          <Button href={getWhatsappHref()} size="sm">
+            WhatsApp
+          </Button>
+        </div>
       </div>
     </header>
   );

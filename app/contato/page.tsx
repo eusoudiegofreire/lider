@@ -16,7 +16,7 @@ import {
 import { getHardwareStoreSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Contato",
+  title: "Contato, Telefone e WhatsApp em Ariquemes",
   description:
     "Fale com a Líder Máquinas e Ferramentas em Ariquemes-RO: WhatsApp, telefone, endereço, horário e mapa. Loja física com atendimento também online.",
   alternates: {

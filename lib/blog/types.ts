@@ -31,6 +31,8 @@ export type BlogPost = {
   slug: string;
   /** H1 — pergunta ou tema de busca real, não título de propaganda. */
   title: string;
+  /** Título curto pro Google (aba e resultado de busca, ~60 caracteres). Sem ele, usa `title`. */
+  seoTitle?: string;
   category: BlogCategorySlug;
   /** ISO (YYYY-MM-DD). */
   date: string;

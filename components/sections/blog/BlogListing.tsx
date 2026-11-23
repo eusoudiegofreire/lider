@@ -15,7 +15,7 @@ export function BlogListing({ eyebrow, title, description, posts, activeCategory
   return (
     <section className="border-b border-divider bg-background py-[72px] md:py-[100px]">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading eyebrow={eyebrow} title={title} description={description} />
+        <SectionHeading as="h1" eyebrow={eyebrow} title={title} description={description} />
 
         <div className="mt-8">
           <BlogCategoryFilter active={activeCategory} />

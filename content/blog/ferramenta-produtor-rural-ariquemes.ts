@@ -8,6 +8,7 @@ import type { BlogPost } from "@/lib/blog/types";
 export const ferramentaProdutorRuralAriquemes: BlogPost = {
   slug: "onde-comprar-ferramenta-produtor-rural-ariquemes",
   title: "Onde Comprar Ferramenta e Equipamento pra Propriedade Rural em Ariquemes?",
+  seoTitle: "Ferramentas pra Propriedade Rural em Ariquemes",
   category: "produtor-rural",
   date: "2026-08-20",
   excerpt:

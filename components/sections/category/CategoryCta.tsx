@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import { NAP, getWhatsappHref } from "@/lib/constants";
+import { NAP, getPhoneHref, getWhatsappHref } from "@/lib/constants";
 
 type CategoryCtaProps = {
   title?: string;
@@ -24,7 +24,10 @@ export function CategoryCta({
           {/* brand (bordô) falha contraste sobre fundo escuro (2.21:1) — ver
               docs/brand-guidelines.md — ênfase aqui é por peso, não cor. */}
           <p className="mt-1 text-sm text-muted-foreground">
-            Tel/WhatsApp: <span className="font-mono text-foreground">{NAP.phone}</span>
+            Tel:{" "}
+            <a href={getPhoneHref()} className="font-mono text-foreground hover:underline">
+              {NAP.phone}
+            </a>
           </p>
         </div>
 

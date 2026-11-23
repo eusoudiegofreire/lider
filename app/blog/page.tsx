@@ -6,7 +6,7 @@ import { BASE_OPEN_GRAPH } from "@/lib/constants";
 import { getBreadcrumbListSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog: Dicas de Ferramentas e Máquinas",
   description:
     "Guias e comparativos sobre garimpo, produtor rural, ferramentas, mecânica e jardinagem — conteúdo direto ao ponto da Líder Máquinas e Ferramentas, em Ariquemes-RO.",
   alternates: {

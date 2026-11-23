@@ -60,6 +60,17 @@ export function getWhatsappHref(message?: string): string {
 }
 
 /** @lidermaquinaseferramentas — citado no copy final (seção 5/7), sem confirmação separada em NAP pois é handle público, não dado de contato estruturado. */
+/** Link `tel:` do telefone comercial (formato internacional, sem máscara). */
+export function getPhoneHref(): string {
+  return `tel:+55${NAP.phone.replace(/\D/g, "")}`;
+}
+
+/** E-mail público da loja (o mesmo da Política de Privacidade). */
+export const CONTACT_EMAIL = "lidermaquinaseferramentas@gmail.com";
+
+/** Perfil da loja no Google (Google Meu Negócio) — usado no `sameAs` do schema. */
+export const GOOGLE_BUSINESS_URL = "https://maps.app.goo.gl/bAGy35TvZpj8W4N47";
+
 export const INSTAGRAM_HANDLE = "@lidermaquinaseferramentas";
 
 /** Link clicável do Instagram, derivado do handle público (sem o "@"). */

@@ -23,9 +23,12 @@ export function Hero() {
     <section className="border-b border-divider bg-background">
       <div className="mx-auto max-w-6xl px-6 py-[72px] md:py-[160px]">
         <div className="max-w-2xl">
-          <h1 className="text-[clamp(3rem,7vw,4.5rem)] font-display font-bold leading-[1.02] tracking-[-0.03em] text-foreground">
-            Da roça ao garimpo, da obra ao rio.
+          <h1 className="mb-4 font-mono text-xs uppercase tracking-[0.08em] text-brand">
+            Loja de máquinas e ferramentas em Ariquemes-RO
           </h1>
+          <p className="text-[clamp(3rem,7vw,4.5rem)] font-display font-bold leading-[1.02] tracking-[-0.03em] text-foreground">
+            Da roça ao garimpo, da obra ao rio.
+          </p>
           <p className="mt-4 max-w-xl text-lg text-muted-foreground">
             Ferragens, abrasivos e máquinas para quem trabalha em Rondônia. Loja física em
             Ariquemes.
