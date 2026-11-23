@@ -16,7 +16,7 @@ import { getHardwareStoreSchema } from "@/lib/schema";
  */
 export const metadata: Metadata = {
   title: {
-    absolute: "Líder Máquinas — Ferramentas e Ferragens em Ariquemes RO",
+    absolute: "Loja de Máquinas e Ferramentas em Ariquemes-RO | Líder Máquinas",
   },
   description:
     "Ferragens, abrasivos, ferramentas e máquinas em Ariquemes, Rondônia. Garimpo, agro, obra, mecânica e pesca. Loja física com estoque e envio para o Norte.",

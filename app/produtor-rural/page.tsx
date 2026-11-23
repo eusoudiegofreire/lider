@@ -8,7 +8,7 @@ import { BASE_OPEN_GRAPH, NAP, getLocalServedCitiesLine } from "@/lib/constants"
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Ferramentas Produtor Rural",
+  title: "Ferramentas pro Produtor Rural em Ariquemes",
   description:
     "Ferramentas e equipamentos para produtor rural na Líder Máquinas e Ferramentas, em Ariquemes-RO. Atendemos num raio de até 150km. Loja física e WhatsApp.",
   alternates: {

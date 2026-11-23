@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { FRENTES_DE_TRABALHO, INSTAGRAM_HANDLE, NAP, getDirectionsHref, getWhatsappHref } from "@/lib/constants";
+import { FRENTES_DE_TRABALHO, INSTAGRAM_HANDLE, NAP, getDirectionsHref, getInstagramHref, getPhoneHref, getWhatsappHref } from "@/lib/constants";
 
 /**
  * Rodapé (`copy-lider-home.md` §7). Assinatura usa o nome de marca do copy
@@ -76,8 +76,21 @@ export function Footer() {
                 WhatsApp
               </a>
             </li>
-            <li>Tel: {NAP.phone}</li>
-            <li>{INSTAGRAM_HANDLE}</li>
+            <li>
+              <a href={getPhoneHref()} className="transition-colors hover:text-brand">
+                Tel: {NAP.phone}
+              </a>
+            </li>
+            <li>
+              <a
+                href={getInstagramHref()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-brand"
+              >
+                {INSTAGRAM_HANDLE}
+              </a>
+            </li>
           </ul>
         </div>
       </div>

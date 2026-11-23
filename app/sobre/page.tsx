@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MapEmbed } from "@/components/sections/MapEmbed";
 import {
+  getPhoneHref,
   BASE_OPEN_GRAPH,
   GOOGLE_MAPS_EMBED_URL,
   INSTAGRAM_HANDLE,
@@ -19,7 +20,7 @@ import { getHardwareStoreSchema } from "@/lib/schema";
 const TEAM_PHOTO_ALT = "Equipe da Líder Máquinas e Ferramentas em frente à loja em Ariquemes-RO";
 
 export const metadata: Metadata = {
-  title: "Sobre e Localização",
+  title: "Sobre a Loja e Como Chegar em Ariquemes",
   description:
     "Conheça a Líder Máquinas e Ferramentas, loja física em Ariquemes-RO, e veja endereço, horário e mapa pra chegar até a gente.",
   alternates: {
@@ -121,7 +122,11 @@ export default function SobrePage() {
                   <dt className="font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground">
                     Telefone
                   </dt>
-                  <dd className="mt-1 text-foreground">{NAP.phone}</dd>
+                  <dd className="mt-1 text-foreground">
+                    <a href={getPhoneHref()} className="hover:text-brand">
+                      {NAP.phone}
+                    </a>
+                  </dd>
                 </div>
                 <div>
                   <dt className="font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground">

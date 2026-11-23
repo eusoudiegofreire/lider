@@ -8,7 +8,7 @@ import { BASE_OPEN_GRAPH, NAP, getLocalServedCitiesLine } from "@/lib/constants"
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Equipamentos de Jardinagem em Ariquemes - RO",
+  title: "Equipamentos de Jardinagem em Ariquemes-RO",
   description:
     "Motosserra, cortador de grama e equipamentos de jardinagem na Líder Máquinas e Ferramentas, em Ariquemes-RO. Loja física e atendimento pelo WhatsApp.",
   alternates: {

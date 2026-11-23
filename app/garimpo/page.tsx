@@ -8,7 +8,7 @@ import { BASE_OPEN_GRAPH } from "@/lib/constants";
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Equipamentos para Garimpo",
+  title: "Equipamentos para Garimpo em Ariquemes-RO",
   description:
     "Equipamentos para garimpo na Líder Máquinas e Ferramentas (Ariquemes-RO), atendendo Rondônia, Amazonas, Acre e Mato Grosso. Loja física e WhatsApp.",
   alternates: {

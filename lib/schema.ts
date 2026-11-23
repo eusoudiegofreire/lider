@@ -1,6 +1,9 @@
 import {
+  CONTACT_EMAIL,
+  GOOGLE_BUSINESS_URL,
   LOCAL_GEO_RADIUS_METERS,
   NAP,
+  getInstagramHref,
   OPENING_HOURS,
   REGIONAL_STATES,
   SITE_URL,
@@ -59,7 +62,13 @@ export function getHardwareStoreSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "HardwareStore",
+    "@id": `${SITE_URL}/#loja`,
     name: NAP.name,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo-lider.jpg`,
+    image: [`${SITE_URL}/og-image.jpg`, `${SITE_URL}/lider%20hero.jpg`],
+    email: CONTACT_EMAIL,
+    sameAs: [getInstagramHref(), GOOGLE_BUSINESS_URL],
     address: buildPostalAddress(),
     geo: {
       "@type": "GeoCoordinates",
@@ -67,7 +76,7 @@ export function getHardwareStoreSchema() {
       longitude: NAP.geo.longitude,
     },
     areaServed: getAreaServed("local"),
-    telephone: NAP.phone,
+    telephone: `+55-${NAP.phone.replace(/\D/g, "").replace(/^(\d{2})(\d{4})(\d{4})$/, "$1-$2-$3")}`,
     openingHoursSpecification: OPENING_HOURS.map((oh) => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: oh.dayOfWeek,
@@ -121,6 +130,7 @@ export function getCategoryServiceSchema({
     name: `${name} — ${NAP.name}`,
     provider: {
       "@type": "HardwareStore",
+      "@id": `${SITE_URL}/#loja`,
       name: NAP.name,
       address: buildPostalAddress(),
     },
@@ -181,6 +191,7 @@ export function getBlogPostingSchema(post: BlogPost) {
     },
     publisher: {
       "@type": "HardwareStore",
+      "@id": `${SITE_URL}/#loja`,
       name: NAP.name,
       address: buildPostalAddress(),
     },

@@ -8,7 +8,7 @@ import { BASE_OPEN_GRAPH, NAP } from "@/lib/constants";
 import { getCategoryServiceSchema, getFaqPageSchema, type FaqItem } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Ferramentas em Ariquemes - RO",
+  title: "Ferramentas para Obra e Casa em Ariquemes-RO",
   description:
     "Ferramentas para casa e obra na Líder Máquinas e Ferramentas, loja física em Ariquemes-RO com atendimento também pelo WhatsApp.",
   alternates: {

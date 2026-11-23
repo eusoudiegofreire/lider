@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: NAP.name,
-    template: `${NAP.name} | %s`,
+    template: "%s | Líder Máquinas",
   },
   description: `Site institucional da ${NAP.name} em ${NAP.address.locality} - ${NAP.address.region}.`,
   openGraph: {

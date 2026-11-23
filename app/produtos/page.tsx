@@ -7,9 +7,9 @@ import { PRODUCTS, PRODUCT_CATEGORY_ORDER } from "@/lib/products";
 import { getProductListSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Produtos",
+  title: "Ferramentas e Máquinas à Venda em Ariquemes-RO",
   description:
-    "Amostra de produtos da Líder Máquinas e Ferramentas em Ariquemes-RO: garimpo, produtor rural, ferramentas, mecânica, pesca, jardinagem e veterinário. Estoque completo na loja física ou pelo WhatsApp.",
+    "Ferramentas e máquinas à venda em Ariquemes-RO: garimpo, produtor rural, obra, mecânica, pesca, jardinagem e veterinário. Consulte o estoque pelo WhatsApp.",
   alternates: {
     canonical: "/produtos",
   },

@@ -8,6 +8,7 @@ import type { BlogPost } from "@/lib/blog/types";
 export const equipamentoGarimpoAriquemes: BlogPost = {
   slug: "onde-comprar-equipamento-garimpo-ariquemes",
   title: "Onde Comprar Bomba e Equipamento pra Garimpo em Ariquemes e Região?",
+  seoTitle: "Equipamento pra Garimpo em Ariquemes: Onde Comprar",
   category: "garimpo",
   date: "2026-08-20",
   excerpt:

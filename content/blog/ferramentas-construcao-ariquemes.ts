@@ -8,6 +8,7 @@ import type { BlogPost } from "@/lib/blog/types";
 export const ferramentasConstrucaoAriquemes: BlogPost = {
   slug: "onde-comprar-ferramentas-construcao-ariquemes",
   title: "Onde Comprar Ferramentas e Material de Construção em Ariquemes?",
+  seoTitle: "Ferramentas e Material de Obra em Ariquemes",
   category: "ferramentas",
   date: "2026-08-20",
   excerpt:
