@@ -101,6 +101,16 @@ export function Footer() {
         <Link href="/privacidade" className="underline-offset-2 transition-colors hover:text-brand hover:underline">
           Política de Privacidade
         </Link>
+        <br />
+        Desenvolvido por{" "}
+        <a
+          href="https://www.dlxdigital.com.br/"
+          target="_blank"
+          rel="noopener"
+          className="font-medium text-foreground underline-offset-2 transition-colors hover:text-brand hover:underline"
+        >
+          DLX Digital
+        </a>
       </div>
     </footer>
   );
