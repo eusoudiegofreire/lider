@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MapEmbed } from "./MapEmbed";
@@ -6,8 +8,7 @@ import { GOOGLE_MAPS_EMBED_URL, INSTAGRAM_HANDLE, NAP, getDirectionsHref, getPho
 /**
  * "A loja" (`copy-lider-home.md` §5, texto exato — endereço/horário/telefone
  * preenchidos com os dados reais já confirmados em `NAP`, não os `[X]` do
- * template). Foto de fachada segue como pendente (ver relatório final) —
- * mesmo padrão de placeholder tracejado já usado no site antes desta sessão.
+ * template). Foto da fachada em `public/fachada-lider-maquinas-ariquemes.jpg`.
  */
 export function LocationSection() {
   return (
@@ -60,10 +61,14 @@ export function LocationSection() {
             <Button href={getDirectionsHref()}>Traçar rota até a loja</Button>
           </div>
 
-          <div className="mt-6 flex aspect-video items-center justify-center rounded-lg border border-dashed border-divider bg-card">
-            <p className="px-4 text-center font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground">
-              Foto da fachada — a confirmar
-            </p>
+          <div className="relative mt-6 aspect-video overflow-hidden rounded-lg border border-divider">
+            <Image
+              src="/fachada-lider-maquinas-ariquemes.jpg"
+              alt={`Fachada da ${NAP.name} na ${NAP.address.street}, em ${NAP.address.locality}-${NAP.address.region}`}
+              fill
+              sizes="(min-width: 768px) 560px, 100vw"
+              className="object-cover"
+            />
           </div>
         </div>
 

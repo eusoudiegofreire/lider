@@ -66,7 +66,7 @@ export function getHardwareStoreSchema() {
     name: NAP.name,
     url: SITE_URL,
     logo: `${SITE_URL}/logo-lider.jpg`,
-    image: [`${SITE_URL}/og-image.jpg`, `${SITE_URL}/lider%20hero.jpg`],
+    image: [`${SITE_URL}/fachada-lider-maquinas-ariquemes.jpg`, `${SITE_URL}/og-image.jpg`, `${SITE_URL}/lider%20hero.jpg`],
     email: CONTACT_EMAIL,
     sameAs: [getInstagramHref(), GOOGLE_BUSINESS_URL],
     address: buildPostalAddress(),
